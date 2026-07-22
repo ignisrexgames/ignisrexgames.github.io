@@ -76,7 +76,7 @@ body{
 
     background-image:
 
-        linear-gradient(rgba(5,5,5,.45), rgba(5,5,5,.65)),
+        linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
 
         url("images/background.png");
 

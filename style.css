@@ -94,7 +94,7 @@ body{
 
     transform: scale(1.08);
 
-    filter: blur(3px);
+    filter: blur(1px);
 
 }
 

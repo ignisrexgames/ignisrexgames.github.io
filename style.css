@@ -47,57 +47,43 @@ body{
 
 
 
+
 /* ARKA PLAN */
 
-
-
 .background{
+    position: fixed;
+    inset: -20px;
+    z-index: -2;
 
+    background-image:
+        linear-gradient(rgba(5,5,5,.45), rgba(5,5,5,.65)),
+        url("images/background.png");
 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
-    position:fixed;
+    transform: scale(1.08);
+    filter: blur(8px);
+}
 
-
-
-    inset:0;
-
-
-
-    z-index:-1;
-
-
-
-
+.background::after{
+    content: "";
+    position: absolute;
+    inset: 0;
 
     background:
+        radial-gradient(
+            circle at center,
+            rgba(0,0,0,0) 20%,
+            rgba(0,0,0,.35) 100%
+        );
 
-
-
-    radial-gradient(circle at 20% 20%,
-
-    rgba(240,130,27,.18),
-
-    transparent 35%),
-
-
-
-
-
-    radial-gradient(circle at 80% 80%,
-
-    rgba(240,130,27,.12),
-
-    transparent 40%),
-
-
-
-
-
-    #050505;
-
-
-
+    pointer-events: none;
 }
+
+
 
 
 

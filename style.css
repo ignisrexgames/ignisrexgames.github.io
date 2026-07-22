@@ -59,7 +59,8 @@ body{
 .background{
     position: fixed;
     inset: -20px;
-    z-index:-1;
+    z-index:0;
+    pointer-events:none;
 
     background-image:
         linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
@@ -1499,7 +1500,10 @@ transform:translateY(0);
 
 @media(max-width:800px){
 
-
+body > *:not(.background){
+    position:relative;
+    z-index:1;
+}
 
 
 

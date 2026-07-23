@@ -2,7 +2,6 @@
 // Interactive Effects
 
 // SAYFA GİRİŞ ANİMASYONU
-
 document.body.animate(
     [
         {
@@ -20,32 +19,20 @@ document.body.animate(
     }
 );
 
-
-
 // NAVBAR SCROLL EFEKTİ
-
 const nav = document.querySelector("nav");
 
 window.addEventListener("scroll", () => {
-
     if (window.scrollY > 50) {
-
-        nav.style.background = "rgba(0,0,0,.9)";
+        nav.style.background = "rgba(5,5,5,0.95)";
         nav.style.boxShadow = "0 0 25px rgba(240,130,27,.25)";
-
     } else {
-
-        nav.style.background = "rgba(0,0,0,.65)";
+        nav.style.background = "rgba(5,5,5,0.8)";
         nav.style.boxShadow = "none";
-
     }
-
 });
 
-
-
-// MOUSE NEON IŞIĞI (CSS Renk Tonuyla Uyumlu Hale Getirildi)
-
+// MOUSE NEON IŞIĞI
 const light = document.createElement("div");
 
 light.style.position = "fixed";
@@ -64,33 +51,23 @@ let mouseX = 0;
 let mouseY = 0;
 
 document.addEventListener("mousemove", (e) => {
-
     mouseX = e.clientX;
     mouseY = e.clientY;
-
 });
 
 function animateLight() {
-
     light.style.left = mouseX + "px";
     light.style.top = mouseY + "px";
-
     requestAnimationFrame(animateLight);
-
 }
 
 animateLight();
 
-
-
 // OYUN KARTLARI HOVER
-
 const cards = document.querySelectorAll(".game-box");
 
 cards.forEach(card => {
-
     card.addEventListener("mousemove", (e) => {
-
         const rect = card.getBoundingClientRect();
 
         const x = e.clientX - rect.left;
@@ -102,17 +79,11 @@ cards.forEach(card => {
             rotateY(${(x - rect.width / 2) / 20}deg)
             translateY(-8px)
         `;
-
     });
 
     card.addEventListener("mouseleave", () => {
-
         card.style.transform = "";
-
     });
-
 });
-
-
 
 console.log("IGNISREX GAMES SYSTEM ONLINE");

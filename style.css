@@ -18,16 +18,24 @@ body{
 /* ARKA PLAN */
 .background{
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: -1;
     pointer-events: none;
+
     background-image:
         linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
         url("images/background.jpg");
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    will-change: transform;
+    
+    /* Bu kısmı ekliyoruz / güncelliyoruz */
+    transform: translateZ(0); 
+    will-change: auto;
 }
 
 .background::after{

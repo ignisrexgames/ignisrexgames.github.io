@@ -280,3 +280,38 @@ footer{
         font-size: 38px;
     }
 }
+/* Anasayfa sol metin ve sağ logo yerleşimi */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 60px;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-family: 'Orbitron';
+    font-size: 45px;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(240,130,27,0.4);
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: #bbb;
+    max-width: 500px;
+}
+
+.hero-logo-container {
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
+}
+
+.hero-logo-container .hero-logo {
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+}

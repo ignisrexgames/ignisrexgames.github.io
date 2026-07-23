@@ -282,11 +282,13 @@ footer{
 }
 .game-image {
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-image img {
     width: 100%;
-    height: 100%;
-    object-fit: contain; /* 'cover' yerine 'contain' yaptık */
+    height: auto;
     border-radius: 20px;
 }

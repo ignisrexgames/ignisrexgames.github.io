@@ -69,24 +69,34 @@
    <script>
     const logoViewer = document.getElementById('heroLogo');
 
-    let speed = 0.015; // Dönüş hızı
+    let isHovered = false;
+    let currentTheta = 0;
 
+    // Fare üzerine gelince dur
     logoViewer.addEventListener('mouseenter', () => {
-        speed = 0; // Fare gelince durur
+        isHovered = true;
     });
 
+    // Fareyi çekince yavaşça ilk haline dönmeye başla
     logoViewer.addEventListener('mouseleave', () => {
-        speed = 0.015; // Fare gidince tekrar döner
-        // Fareyi çekince logoyu başlangıç açısına sıfırlar
-        logoViewer.cameraOrbit = "0deg 75deg 105%"; 
+        isHovered = false;
     });
 
     function rotateLogo() {
-        if (logoViewer && speed > 0) {
+        if (logoViewer) {
             const orbit = logoViewer.getCameraOrbit();
             if (orbit) {
-                const newTheta = orbit.theta + speed;
-                logoViewer.cameraOrbit = `${newTheta}rad ${orbit.phi}rad ${orbit.radius}m`;
+                if (!isHovered) {
+                    // Normalde kendi kendine döner
+                    currentTheta = orbit.theta + 0.015;
+                } else {
+                    // Fare üzerindeyken açıyı yavaşça 0'a (ilk ön yüze) doğru yaklaştır (Yumuşak geçiş)
+                    // 0.08 sayısı ne kadar küçük olursa dönüş o kadar yavaş ve yumuşak olur
+                    currentTheta += (0 - currentTheta) * 0.08;
+                }
+
+                // Kameranın açısını güncelle
+                logoViewer.cameraOrbit = `${currentTheta}rad 75deg 105%`;
             }
         }
         requestAnimationFrame(rotateLogo);

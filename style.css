@@ -53,7 +53,6 @@ body{
 
 
 
-
 /* ARKA PLAN */
 
 .background{
@@ -69,17 +68,24 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: scroll;
 
-    /* BUNU DEĞİŞTİR */
-    background-attachment: fixed;
-.background{
     will-change: transform;
-} 
-    /* BUNLARI KALDIR */
-    /* transform: scale(1.08); */
-    /* filter: blur(2px); */
 }
 
+.background::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at center,
+        rgba(0,0,0,0) 20%,
+        rgba(0,0,0,.35) 100%
+    );
+
+    pointer-events: none;
+}
 
 .background::after{
 

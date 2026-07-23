@@ -71,8 +71,10 @@ body{
     background-repeat: no-repeat;
 
     /* BUNU DEĞİŞTİR */
-    background-attachment: scroll;
-
+    background-attachment: fixed;
+.background{
+    will-change: transform;
+} 
     /* BUNLARI KALDIR */
     /* transform: scale(1.08); */
     /* filter: blur(2px); */
@@ -173,7 +175,7 @@ nav{
 
 
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:blur(5px);
 
 
 

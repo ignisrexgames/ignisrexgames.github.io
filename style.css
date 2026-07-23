@@ -15,7 +15,7 @@ body{
     overflow-x: hidden;
 }
 
-/* ARKA PLAN */
+/* ARKA PLAN (Sayfa geçişlerinde kayma yapmayan sabit yapı) */
 .background{
     position: fixed;
     top: 0;
@@ -24,17 +24,13 @@ body{
     height: 100vh;
     z-index: -1;
     pointer-events: none;
-
     background-image:
         linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
         url("images/background.jpg");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* Bu kısmı ekliyoruz / güncelliyoruz */
-    transform: translateZ(0); 
+    transform: translateZ(0);
     will-change: auto;
 }
 
@@ -50,19 +46,20 @@ body{
     pointer-events: none;
 }
 
-/* NAVBAR */
+/* NAVBAR (Ortalanmış, Alt Alta Logolu Yeni Tasarım) */
 nav{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 32px 8%;
+    padding: 20px 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    background: rgba(0,0,0,.65);
-    backdrop-filter: blur(5px);
-    border-bottom: 1px solid rgba(240,130,27,.2);
+    justify-content: center;
+    background: rgba(5,5,5,0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(240,130,27,.15);
     z-index: 1000;
 }
 
@@ -70,32 +67,49 @@ nav{
     text-decoration: none;
     color: white;
     font-family: 'Orbitron';
-    font-size: 42px;
+    font-size: 26px;
     font-weight: 900;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 8px;
 }
 
 .logo span{
+    display: block;
     color: #F0821B;
+    font-size: 20px;
     text-shadow: 0 0 15px #F0821B;
+}
+
+/* İnce, Gölgeli Çizgi */
+.nav-divider{
+    width: 220px;
+    height: 1px;
+    background: rgba(240,130,27,0.4);
+    box-shadow: 0 0 8px rgba(240,130,27,0.3);
+    margin-bottom: 10px;
 }
 
 nav ul{
     list-style: none;
     display: flex;
-    gap: 35px;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul a{
-    color: white;
+    color: #ddd;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 500;
     transition: .3s;
 }
 
 nav ul a:hover{
     color: #F0821B;
-    text-shadow: 0 0 15px #F0821B;
+    text-shadow: 0 0 12px #F0821B;
 }
 
 /* HERO */
@@ -113,21 +127,21 @@ nav ul a:hover{
 
 .hero h1{
     font-family: 'Orbitron';
-    font-size: 90px;
-    line-height: 1;
+    font-size: 80px;
+    line-height: 1.1;
     letter-spacing: 5px;
     text-shadow: 0 0 30px rgba(240,130,27,.4);
 }
 
 .hero p{
-    margin-top: 30px;
+    margin-top: 20px;
     font-size: 22px;
     color: #ccc;
 }
 
 .button{
     display: inline-block;
-    margin-top: 40px;
+    margin-top: 30px;
     padding: 15px 40px;
     background: #F0821B;
     color: white;
@@ -146,14 +160,14 @@ nav ul a:hover{
 /* SAYFALAR */
 .page{
     min-height: 100vh;
-    padding: 170px 10% 80px;
+    padding: 180px 10% 80px;
 }
 
 .page h1{
     font-family: 'Orbitron';
     color: #F0821B;
     font-size: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 /* ABOUT */
@@ -169,8 +183,8 @@ nav ul a:hover{
 }
 
 .founder{
-    margin-top: 50px;
-    padding: 30px;
+    margin-top: 40px;
+    padding: 25px;
     border-left: 3px solid #F0821B;
 }
 
@@ -231,7 +245,7 @@ nav ul a:hover{
     max-width: 600px;
     padding: 40px;
     background: rgba(255,255,255,.05);
-    border: 1, 1px solid rgba(240,130,27,.3);
+    border: 1px solid rgba(240,130,27,.3);
     border-radius: 25px;
 }
 
@@ -275,11 +289,6 @@ footer{
 
 /* MOBİL */
 @media(max-width: 800px){
-    nav{
-        flex-direction: column;
-        gap: 20px;
-    }
-
     nav ul{
         gap: 15px;
         flex-wrap: wrap;

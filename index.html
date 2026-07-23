@@ -66,17 +66,34 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
+   <script>
     const logoViewer = document.getElementById('heroLogo');
 
+    let speed = 0.015; // Dönüş hızı
+
     logoViewer.addEventListener('mouseenter', () => {
-        logoViewer.setAttribute('rotation-per-second', '2deg'); // Fare gelince yavaşlar
+        speed = 0; // Fare gelince durur
     });
 
     logoViewer.addEventListener('mouseleave', () => {
-        logoViewer.setAttribute('rotation-per-second', '15deg'); // Fare çekilince eski hızına döner
+        speed = 0.015; // Fare gidince tekrar döner
+        // Fareyi çekince logoyu başlangıç açısına sıfırlar
+        logoViewer.cameraOrbit = "0deg 75deg 105%"; 
     });
-</script>
+
+    function rotateLogo() {
+        if (logoViewer && speed > 0) {
+            const orbit = logoViewer.getCameraOrbit();
+            if (orbit) {
+                const newTheta = orbit.theta + speed;
+                logoViewer.cameraOrbit = `${newTheta}rad ${orbit.phi}rad ${orbit.radius}m`;
+            }
+        }
+        requestAnimationFrame(rotateLogo);
+    }
+
+    requestAnimationFrame(rotateLogo);
+    </script>
 
 </body>
 

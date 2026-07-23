@@ -79,11 +79,9 @@
     logoViewer.addEventListener('mouseleave', () => {
         isHovered = false;
         
-        // Logo siz üzerindeyken 10-20 tur atmış olabilir. Çekince deli gibi 
-        // 20 tur geriye sarmaması için açıyı 1 tam turun (360 derece) içine sabitliyoruz.
+        // Açıyı 1 tam turun içine sabitle ki geriye sararken saçmalamasın
         angle = angle % (2 * Math.PI);
         
-        // Hedefe (ön yüze) en kısa ve en mantıklı yoldan dönmesi için:
         if (angle > Math.PI) {
             angle -= 2 * Math.PI;
         }
@@ -92,16 +90,15 @@
     function animateLogo() {
         if (logoViewer) {
             if (isHovered) {
-                // FARE ÜSTÜNDEYKEN HIZLI DÖNÜŞ: 
-                // Buradaki 0.05'i artırırsan (örn: 0.08) çok daha hızlı döner.
+                // Fare üstündeyken hızlı dönüş (İstediğin gibi canlı hız)
                 angle += 0.05; 
             } else {
-                // FARE ÇEKİLİNCE YAVAŞÇA İLK HALİNE DÖNÜŞ: 
-                // Hedef 0 (ön yüz). Buradaki 0.04 sayısı dönüşün yavaşlık/yumuşaklık ayarıdır.
-                angle += (0 - angle) * 0.04;
+                // Fare çekilince ÇOK DAHA YAVAŞ ve ağır bir şekilde ilk haline dönüş
+                // 0.015 sayısını ne kadar küçültürsen (örn: 0.01) o kadar yavaş döner
+                angle += (0 - angle) * 0.015;
             }
 
-            // Hesaplanmış kusursuz açıyı logoya uygula
+            // Hesaplanmış açıyı logoya uygula
             logoViewer.cameraOrbit = `${angle}rad 75deg 105%`;
         }
         

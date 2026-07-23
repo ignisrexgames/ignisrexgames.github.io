@@ -69,34 +69,36 @@
    <script>
     const logoViewer = document.getElementById('heroLogo');
 
-    let isHovered = false;
-    let currentTheta = 0;
+    let isReturningToFront = false;
+    let targetTheta = 0;
 
-    // Fare üzerine gelince dur
-    logoViewer.addEventListener('mouseenter', () => {
-        isHovered = true;
+    // Kullanıcı fareyle dokunduğunda veya döndürdüğünde otomatik dönmeyi kes
+    logoViewer.addEventListener('pointerdown', () => {
+        isReturningToFront = false;
     });
 
-    // Fareyi çekince yavaşça ilk haline dönmeye başla
+    // Fareyi logodan çektiğinde yavaşça ön yüze dönmeye başla
     logoViewer.addEventListener('mouseleave', () => {
-        isHovered = false;
+        isReturningToFront = true;
+        targetTheta = 0; // Hedefimiz ön yüz (0 derece)
     });
 
     function rotateLogo() {
         if (logoViewer) {
             const orbit = logoViewer.getCameraOrbit();
             if (orbit) {
-                if (!isHovered) {
-                    // Normalde kendi kendine döner
-                    currentTheta = orbit.theta + 0.015;
-                } else {
-                    // Fare üzerindeyken açıyı yavaşça 0'a (ilk ön yüze) doğru yaklaştır (Yumuşak geçiş)
-                    // 0.08 sayısı ne kadar küçük olursa dönüş o kadar yavaş ve yumuşak olur
-                    currentTheta += (0 - currentTheta) * 0.08;
-                }
+                if (isReturningToFront) {
+                    // Fare çekildikten sonra yavaşça 0'a (ön yüze) doğru kaydır
+                    // 0.03 sayısını küçültürsen daha da yavaş döner
+                    const newTheta = orbit.theta + (targetTheta - orbit.theta) * 0.03;
+                    
+                    logoViewer.cameraOrbit = `${newTheta}rad 75deg 105%`;
 
-                // Kameranın açısını güncelle
-                logoViewer.cameraOrbit = `${currentTheta}rad 75deg 105%`;
+                    // Tam ön yüze çok yakın bir yere geldiyse durdur
+                    if (Math.abs(targetTheta - orbit.theta) < 0.01) {
+                        isReturningToFront = false;
+                    }
+                }
             }
         }
         requestAnimationFrame(rotateLogo);

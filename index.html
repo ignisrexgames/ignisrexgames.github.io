@@ -43,15 +43,15 @@
                 <a href="games.html" class="button">Oyunları İncele</a>
             </div>
 
-          <div class="hero-logo-container">
+         <div class="hero-logo-container">
             <a href="games.html" class="hero-logo-link">
                 <model-viewer
                     id="heroLogo"
                     class="hero-3d-logo"
                     src="logo.glb" 
                     alt="IGNISREX GAMES 3D Logo"
-                    interaction-prompt="none"
                     disable-zoom
+                    interaction-prompt="none"
                     shadow-intensity="1">
                 </model-viewer>
             </a>
@@ -67,41 +67,44 @@
    <script>
     const logoViewer = document.getElementById('heroLogo');
 
-    let isReturning = false;
+    let isHovered = false; // Fare üzerinde mi?
+    let currentTheta = 0; // Mevcut dönüş açısı
 
-    // Fare logonun ÜZERİNE GELDİĞİ ANDAN itibaren serbest bırakıyoruz
+    // Fare logonun ÜZERİNE GELDİĞİ AN
     logoViewer.addEventListener('mouseenter', () => {
-        isReturning = false;
+        isHovered = true;
     });
 
-    // Fareyi LOGODAN ÇEKTİĞİN AN yavaşça ilk önüne dönme sürecini başlat
+    // Fareyi LOGODAN ÇEKTİĞİN AN
     logoViewer.addEventListener('mouseleave', () => {
-        isReturning = true;
+        isHovered = false;
     });
 
-    function smoothReturn() {
-        if (logoViewer && isReturning) {
+    function animateLogo() {
+        if (logoViewer) {
             const orbit = logoViewer.getCameraOrbit();
             if (orbit) {
-                let targetTheta = 0; // İlk ön yüz açısı
-                
-                // 0.04 sayısını ne kadar küçültürsen (örn: 0.02) o kadar ağır ve yavaş döner
-                let newTheta = orbit.theta + (targetTheta - orbit.theta) * 0.04;
-
-                logoViewer.cameraOrbit = `${newTheta}rad 75deg 105%`;
-
-                // Tam açısına ulaştığında durdur
-                if (Math.abs(targetTheta - orbit.theta) < 0.005) {
-                    isReturning = false;
+                if (isHovered) {
+                    // --- AŞAMA 1: Fare üzerindeyken KENDİ KENDİNE DÖN ---
+                    // Buradaki 0.025 sayısını artırırsan daha hızlı döner
+                    currentTheta = orbit.theta + 0.025;
+                } else {
+                    // --- AŞAMA 2: Fare çekilince YAVAŞÇA BAŞA DÖN ---
+                    // Hedefimiz 0 (ön yüz). 0.05 sayısını küçülttükçe daha ağır ve yumuşak döner
+                    currentTheta += (0 - currentTheta) * 0.05;
                 }
+
+                // Kameranın açısını güncelle (theta=yatay, phi=dikey, radius=yakınlık)
+                logoViewer.cameraOrbit = `${currentTheta}rad 75deg 105%`;
             }
         }
-        requestAnimationFrame(smoothReturn);
+        // Döngüyü sürekli çalıştır
+        requestAnimationFrame(animateLogo);
     }
 
-    requestAnimationFrame(smoothReturn);
+    // Animasyon döngüsünü başlat
+    requestAnimationFrame(animateLogo);
     </script>
-
 </body>
 
 </html>

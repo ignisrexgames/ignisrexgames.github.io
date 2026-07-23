@@ -7,6 +7,7 @@
     <title>IGNISREX GAMES</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 
 <body>
@@ -35,7 +36,7 @@
             </ul>
         </nav>
 
-        <section class="hero">
+     <section class="hero">
             <div class="hero-text">
                 <h1>GELECEĞİN OYUNLARINI KEŞFET</h1>
                 <p>IGNISREX GAMES olarak yenilikçi, sürükleyici ve eğlenceli mobil deneyimler tasarlıyoruz.</p>
@@ -44,7 +45,16 @@
 
             <div class="hero-logo-container">
                 <a href="games.html" class="hero-logo-link">
-                    <img src="logo.png" alt="IGNISREX GAMES" class="hero-logo">
+                    <model-viewer
+                        class="hero-3d-logo"
+                        src="logo.glb" 
+                        alt="IGNISREX GAMES 3D Logo"
+                        auto-rotate
+                        rotation-per-second="15deg"
+                        camera-controls
+                        disable-zoom
+                        shadow-intensity="1">
+                    </model-viewer>
                 </a>
             </div>
         </section>

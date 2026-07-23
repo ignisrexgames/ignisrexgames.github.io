@@ -43,13 +43,15 @@
                 <a href="games.html" class="button">Oyunları İncele</a>
             </div>
 
-         <div class="hero-logo-container">
+        <div class="hero-logo-container">
             <a href="games.html" class="hero-logo-link">
                 <model-viewer
                     id="heroLogo"
                     class="hero-3d-logo"
                     src="logo.glb" 
                     alt="IGNISREX GAMES 3D Logo"
+                    auto-rotate
+                    rotation-per-second="0deg"
                     disable-zoom
                     interaction-prompt="none"
                     shadow-intensity="1">
@@ -64,46 +66,21 @@
     </footer>
 
     <script src="script.js"></script>
-   <script>
+  <script>
     const logoViewer = document.getElementById('heroLogo');
 
-    let isHovered = false; // Fare üzerinde mi?
-    let currentTheta = 0; // Mevcut dönüş açısı
-
-    // Fare logonun ÜZERİNE GELDİĞİ AN
+    // Fare üzerine gelince hem dönmeyi başlat hem hızı ayarla
     logoViewer.addEventListener('mouseenter', () => {
-        isHovered = true;
+        logoViewer.setAttribute('rotation-per-second', '15deg');
     });
 
-    // Fareyi LOGODAN ÇEKTİĞİN AN
+    // Fareyi çekince hızı sıfırla ve yavaşça ilk önüne dön
     logoViewer.addEventListener('mouseleave', () => {
-        isHovered = false;
+        logoViewer.setAttribute('rotation-per-second', '0deg');
+        
+        // Kamerayı yumuşakca ilk açısına (0 dereceye) sıfırla
+        logoViewer.cameraOrbit = "0deg 75deg 105%";
     });
-
-    function animateLogo() {
-        if (logoViewer) {
-            const orbit = logoViewer.getCameraOrbit();
-            if (orbit) {
-                if (isHovered) {
-                    // --- AŞAMA 1: Fare üzerindeyken KENDİ KENDİNE DÖN ---
-                    // Buradaki 0.025 sayısını artırırsan daha hızlı döner
-                    currentTheta = orbit.theta + 0.025;
-                } else {
-                    // --- AŞAMA 2: Fare çekilince YAVAŞÇA BAŞA DÖN ---
-                    // Hedefimiz 0 (ön yüz). 0.05 sayısını küçülttükçe daha ağır ve yumuşak döner
-                    currentTheta += (0 - currentTheta) * 0.05;
-                }
-
-                // Kameranın açısını güncelle (theta=yatay, phi=dikey, radius=yakınlık)
-                logoViewer.cameraOrbit = `${currentTheta}rad 75deg 105%`;
-            }
-        }
-        // Döngüyü sürekli çalıştır
-        requestAnimationFrame(animateLogo);
-    }
-
-    // Animasyon döngüsünü başlat
-    requestAnimationFrame(animateLogo);
     </script>
 </body>
 

@@ -58,21 +58,24 @@ body{
 
 .background{
     position: fixed;
-    inset: -20px;
-    z-index:0;
-    pointer-events:none;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
 
     background-image:
         linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
         url("images/background.png");
 
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    transform:scale(1.08);
-    filter:blur(2px);
+    /* BUNU DEĞİŞTİR */
+    background-attachment: scroll;
+
+    /* BUNLARI KALDIR */
+    /* transform: scale(1.08); */
+    /* filter: blur(2px); */
 }
 
 
@@ -1500,10 +1503,6 @@ transform:translateY(0);
 
 @media(max-width:800px){
 
-body > *:not(.background){
-    position:relative;
-    z-index:1;
-}
 
 
 

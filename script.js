@@ -4,20 +4,20 @@
 // SAYFA GİRİŞ ANİMASYONU
 
 document.body.animate(
-[
+    [
+        {
+            opacity: 0,
+            transform: "translateY(20px)"
+        },
+        {
+            opacity: 1,
+            transform: "translateY(0)"
+        }
+    ],
     {
-        opacity: 0,
-        transform: "translateY(20px)"
-    },
-    {
-        opacity: 1,
-        transform: "translateY(0)"
+        duration: 700,
+        easing: "ease-out"
     }
-],
-{
-    duration: 700,
-    easing: "ease-out"
-}
 );
 
 
@@ -31,7 +31,7 @@ window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
 
         nav.style.background = "rgba(0,0,0,.9)";
-        nav.style.boxShadow = "0 0 25px rgba(255,106,0,.25)";
+        nav.style.boxShadow = "0 0 25px rgba(240,130,27,.25)";
 
     } else {
 
@@ -44,7 +44,7 @@ window.addEventListener("scroll", () => {
 
 
 
-// MOUSE NEON IŞIĞI (Optimize Edildi)
+// MOUSE NEON IŞIĞI (CSS Renk Tonuyla Uyumlu Hale Getirildi)
 
 const light = document.createElement("div");
 
@@ -54,7 +54,7 @@ light.style.height = "250px";
 light.style.borderRadius = "50%";
 light.style.pointerEvents = "none";
 light.style.background =
-"radial-gradient(circle,rgba(255,106,0,.15),transparent 70%)";
+"radial-gradient(circle, rgba(240,130,27,.15), transparent 70%)";
 light.style.transform = "translate(-50%,-50%)";
 light.style.zIndex = "999";
 

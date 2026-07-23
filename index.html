@@ -43,14 +43,14 @@
                 <a href="games.html" class="button">Oyunları İncele</a>
             </div>
 
-           <div class="hero-logo-container">
+          <div class="hero-logo-container">
             <a href="games.html" class="hero-logo-link">
                 <model-viewer
                     id="heroLogo"
                     class="hero-3d-logo"
                     src="logo.glb" 
                     alt="IGNISREX GAMES 3D Logo"
-                    camera-controls
+                    interaction-prompt="none"
                     disable-zoom
                     shadow-intensity="1">
                 </model-viewer>
@@ -69,12 +69,12 @@
 
     let isReturning = false;
 
-    // Kullanıcı fareyle logoya dokunduğu an (çevirmeye başladığında) geri dönmeyi durdur
-    logoViewer.addEventListener('pointerdown', () => {
+    // Fare logonun ÜZERİNE GELDİĞİ ANDAN itibaren serbest bırakıyoruz
+    logoViewer.addEventListener('mouseenter', () => {
         isReturning = false;
     });
 
-    // Fareyi logodan çektiğin an yavaşça ilk haline dönme sürecini başlat
+    // Fareyi LOGODAN ÇEKTİĞİN AN yavaşça ilk önüne dönme sürecini başlat
     logoViewer.addEventListener('mouseleave', () => {
         isReturning = true;
     });
@@ -83,16 +83,14 @@
         if (logoViewer && isReturning) {
             const orbit = logoViewer.getCameraOrbit();
             if (orbit) {
-                // Hedefimiz her zaman ilk açılış açısı olan 0 (theta)
-                let targetTheta = 0;
+                let targetTheta = 0; // İlk ön yüz açısı
                 
-                // Mevcut açıdan 0'a doğru yavaşça (0.05 faktörüyle) yaklaş
-                // Bu sayıyı küçülttükçe (örneğin 0.02 yaparsan) daha da yavaş döner
-                let newTheta = orbit.theta + (targetTheta - orbit.theta) * 0.05;
+                // 0.04 sayısını ne kadar küçültürsen (örn: 0.02) o kadar ağır ve yavaş döner
+                let newTheta = orbit.theta + (targetTheta - orbit.theta) * 0.04;
 
                 logoViewer.cameraOrbit = `${newTheta}rad 75deg 105%`;
 
-                // Tamamen ilk haline çok yakın bir yere geldiyse durdur
+                // Tam açısına ulaştığında durdur
                 if (Math.abs(targetTheta - orbit.theta) < 0.005) {
                     isReturning = false;
                 }

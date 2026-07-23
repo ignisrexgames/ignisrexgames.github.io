@@ -43,15 +43,13 @@
                 <a href="games.html" class="button">Oyunları İncele</a>
             </div>
 
-        <div class="hero-logo-container">
+       <div class="hero-logo-container">
             <a href="games.html" class="hero-logo-link">
                 <model-viewer
                     id="heroLogo"
                     class="hero-3d-logo"
                     src="logo.glb" 
                     alt="IGNISREX GAMES 3D Logo"
-                    auto-rotate
-                    rotation-per-second="0deg"
                     disable-zoom
                     interaction-prompt="none"
                     shadow-intensity="1">
@@ -69,18 +67,49 @@
   <script>
     const logoViewer = document.getElementById('heroLogo');
 
-    // Fare üzerine gelince hem dönmeyi başlat hem hızı ayarla
+    let angle = 0; // Logonun dönüş açısı
+    let isHovered = false; 
+
+    // 1. FARE ÜZERİNE GELDİĞİNDE
     logoViewer.addEventListener('mouseenter', () => {
-        logoViewer.setAttribute('rotation-per-second', '15deg');
+        isHovered = true;
     });
 
-    // Fareyi çekince hızı sıfırla ve yavaşça ilk önüne dön
+    // 2. FARE ÇEKİLDİĞİNDE
     logoViewer.addEventListener('mouseleave', () => {
-        logoViewer.setAttribute('rotation-per-second', '0deg');
+        isHovered = false;
         
-        // Kamerayı yumuşakca ilk açısına (0 dereceye) sıfırla
-        logoViewer.cameraOrbit = "0deg 75deg 105%";
+        // Logo siz üzerindeyken 10-20 tur atmış olabilir. Çekince deli gibi 
+        // 20 tur geriye sarmaması için açıyı 1 tam turun (360 derece) içine sabitliyoruz.
+        angle = angle % (2 * Math.PI);
+        
+        // Hedefe (ön yüze) en kısa ve en mantıklı yoldan dönmesi için:
+        if (angle > Math.PI) {
+            angle -= 2 * Math.PI;
+        }
     });
+
+    function animateLogo() {
+        if (logoViewer) {
+            if (isHovered) {
+                // FARE ÜSTÜNDEYKEN HIZLI DÖNÜŞ: 
+                // Buradaki 0.05'i artırırsan (örn: 0.08) çok daha hızlı döner.
+                angle += 0.05; 
+            } else {
+                // FARE ÇEKİLİNCE YAVAŞÇA İLK HALİNE DÖNÜŞ: 
+                // Hedef 0 (ön yüz). Buradaki 0.04 sayısı dönüşün yavaşlık/yumuşaklık ayarıdır.
+                angle += (0 - angle) * 0.04;
+            }
+
+            // Hesaplanmış kusursuz açıyı logoya uygula
+            logoViewer.cameraOrbit = `${angle}rad 75deg 105%`;
+        }
+        
+        requestAnimationFrame(animateLogo);
+    }
+
+    // Animasyonu başlat
+    requestAnimationFrame(animateLogo);
     </script>
 </body>
 

@@ -280,19 +280,23 @@ footer{
         font-size: 38px;
     }
 }
-/* Anasayfa sol metin ve sağ logo yerleşimi */
+/* Anasayfa sol metin ve sağ logo yerleşimi (Güncellendi) */
 .hero {
     height: 100vh;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center; /* Yazıyı dikeyde ortadan biraz yukarı hizalar */
     padding: 60px;
     text-align: left;
 }
 
+.hero-text {
+    transform: translateY(-40px); /* Yazıyı biraz daha yukarı iter */
+}
+
 .hero-text h1 {
     font-family: 'Orbitron';
-    font-size: 45px;
+    font-size: 42px;
     color: white;
     margin-bottom: 15px;
     text-shadow: 0 0 20px rgba(240,130,27,0.4);
@@ -311,7 +315,7 @@ footer{
 }
 
 .hero-logo-container .hero-logo {
-    max-width: 250px;
+    max-width: 150px; /* Logoyu daha küçük ve şık yaptık */
     width: 100%;
     height: auto;
 }

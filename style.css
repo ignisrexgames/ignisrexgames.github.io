@@ -280,32 +280,32 @@ footer{
         font-size: 38px;
     }
 }
-/* Anasayfa sol metin ve sağ logo yerleşimi (Güncellendi) */
+/* Anasayfa sol metin ve sağ logo yerleşimi (Daha yukarı & daha küçük) */
 .hero {
     height: 100vh;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Yazıyı dikeyde ortadan biraz yukarı hizalar */
+    align-items: center;
     padding: 60px;
     text-align: left;
 }
 
 .hero-text {
-    transform: translateY(-40px); /* Yazıyı biraz daha yukarı iter */
+    transform: translateY(-80px); /* Sayıyı artırdıkça yazı daha da yukarı taşınır */
 }
 
 .hero-text h1 {
     font-family: 'Orbitron';
-    font-size: 42px;
+    font-size: 40px;
     color: white;
     margin-bottom: 15px;
     text-shadow: 0 0 20px rgba(240,130,27,0.4);
 }
 
 .hero-text p {
-    font-size: 18px;
+    font-size: 17px;
     color: #bbb;
-    max-width: 500px;
+    max-width: 480px;
 }
 
 .hero-logo-container {
@@ -315,7 +315,7 @@ footer{
 }
 
 .hero-logo-container .hero-logo {
-    max-width: 150px; /* Logoyu daha küçük ve şık yaptık */
+    max-width: 110px; /* Logoyu çok daha küçük ve kibar yaptık */
     width: 100%;
     height: auto;
 }

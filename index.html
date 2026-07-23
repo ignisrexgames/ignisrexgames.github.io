@@ -43,15 +43,13 @@
                 <a href="games.html" class="button">Oyunları İncele</a>
             </div>
 
-            <div class="hero-logo-container">
+           <div class="hero-logo-container">
             <a href="games.html" class="hero-logo-link">
                 <model-viewer
                     id="heroLogo"
                     class="hero-3d-logo"
                     src="logo.glb" 
                     alt="IGNISREX GAMES 3D Logo"
-                    auto-rotate
-                    rotation-per-second="15deg"
                     camera-controls
                     disable-zoom
                     shadow-intensity="1">
@@ -69,42 +67,41 @@
    <script>
     const logoViewer = document.getElementById('heroLogo');
 
-    let isReturningToFront = false;
-    let targetTheta = 0;
+    let isReturning = false;
 
-    // Kullanıcı fareyle dokunduğunda veya döndürdüğünde otomatik dönmeyi kes
+    // Kullanıcı fareyle logoya dokunduğu an (çevirmeye başladığında) geri dönmeyi durdur
     logoViewer.addEventListener('pointerdown', () => {
-        isReturningToFront = false;
+        isReturning = false;
     });
 
-    // Fareyi logodan çektiğinde yavaşça ön yüze dönmeye başla
+    // Fareyi logodan çektiğin an yavaşça ilk haline dönme sürecini başlat
     logoViewer.addEventListener('mouseleave', () => {
-        isReturningToFront = true;
-        targetTheta = 0; // Hedefimiz ön yüz (0 derece)
+        isReturning = true;
     });
 
-    function rotateLogo() {
-        if (logoViewer) {
+    function smoothReturn() {
+        if (logoViewer && isReturning) {
             const orbit = logoViewer.getCameraOrbit();
             if (orbit) {
-                if (isReturningToFront) {
-                    // Fare çekildikten sonra yavaşça 0'a (ön yüze) doğru kaydır
-                    // 0.03 sayısını küçültürsen daha da yavaş döner
-                    const newTheta = orbit.theta + (targetTheta - orbit.theta) * 0.03;
-                    
-                    logoViewer.cameraOrbit = `${newTheta}rad 75deg 105%`;
+                // Hedefimiz her zaman ilk açılış açısı olan 0 (theta)
+                let targetTheta = 0;
+                
+                // Mevcut açıdan 0'a doğru yavaşça (0.05 faktörüyle) yaklaş
+                // Bu sayıyı küçülttükçe (örneğin 0.02 yaparsan) daha da yavaş döner
+                let newTheta = orbit.theta + (targetTheta - orbit.theta) * 0.05;
 
-                    // Tam ön yüze çok yakın bir yere geldiyse durdur
-                    if (Math.abs(targetTheta - orbit.theta) < 0.01) {
-                        isReturningToFront = false;
-                    }
+                logoViewer.cameraOrbit = `${newTheta}rad 75deg 105%`;
+
+                // Tamamen ilk haline çok yakın bir yere geldiyse durdur
+                if (Math.abs(targetTheta - orbit.theta) < 0.005) {
+                    isReturning = false;
                 }
             }
         }
-        requestAnimationFrame(rotateLogo);
+        requestAnimationFrame(smoothReturn);
     }
 
-    requestAnimationFrame(rotateLogo);
+    requestAnimationFrame(smoothReturn);
     </script>
 
 </body>

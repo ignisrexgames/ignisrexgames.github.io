@@ -308,14 +308,21 @@ footer{
     max-width: 480px;
 }
 
+/* 3D Logo kapsayıcı (Aynı kalabilir) */
 .hero-logo-container {
     position: absolute;
     right: 60px;
     bottom: 60px;
 }
 
-.hero-logo-container .hero-logo {
-    max-width: 110px; /* Logoyu çok daha küçük ve kibar yaptık */
-    width: 100%;
-    height: auto;
+/* YENİ: 3D Görüntüleyiciyi Boyutlandırma */
+.hero-3d-logo {
+    width: 150px; /* Logonun ekranda kaplayacağı genişlik */
+    height: 150px; /* Logonun ekranda kaplayacağı yükseklik */
+    --poster-color: transparent; /* Yüklenirken arka planı şeffaf yapar */
+}
+
+/* (İsteğe bağlı) Fare üzerine gelince dönmeyi hızlandır */
+.hero-logo-link:hover .hero-3d-logo {
+    rotation-per-second: 50deg; /* Hızlı dönüş */
 }

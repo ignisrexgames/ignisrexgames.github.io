@@ -44,19 +44,20 @@
             </div>
 
             <div class="hero-logo-container">
-                <a href="games.html" class="hero-logo-link">
-                    <model-viewer
-                        class="hero-3d-logo"
-                        src="logo.glb" 
-                        alt="IGNISREX GAMES 3D Logo"
-                        auto-rotate
-                        rotation-per-second="15deg"
-                        camera-controls
-                        disable-zoom
-                        shadow-intensity="1">
-                    </model-viewer>
-                </a>
-            </div>
+            <a href="games.html" class="hero-logo-link">
+                <model-viewer
+                    id="heroLogo"
+                    class="hero-3d-logo"
+                    src="logo.glb" 
+                    alt="IGNISREX GAMES 3D Logo"
+                    auto-rotate
+                    rotation-per-second="15deg"
+                    camera-controls
+                    disable-zoom
+                    shadow-intensity="1">
+                </model-viewer>
+            </a>
+        </div>
         </section>
     </header>
 
@@ -65,6 +66,17 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+    const logoViewer = document.getElementById('heroLogo');
+
+    logoViewer.addEventListener('mouseenter', () => {
+        logoViewer.setAttribute('rotation-per-second', '2deg'); // Fare gelince yavaşlar
+    });
+
+    logoViewer.addEventListener('mouseleave', () => {
+        logoViewer.setAttribute('rotation-per-second', '15deg'); // Fare çekilince eski hızına döner
+    });
+</script>
 
 </body>
 

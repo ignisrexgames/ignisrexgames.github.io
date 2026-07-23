@@ -280,15 +280,3 @@ footer{
         font-size: 38px;
     }
 }
-.game-image {
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.game-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-}

@@ -91,6 +91,19 @@
         }
     });
 
+    // Dokunmatik cihazlar (mobil/tablet) için dokunma desteği
+    logoViewer.addEventListener('touchstart', () => {
+        isHovered = true;
+    });
+
+    logoViewer.addEventListener('touchend', () => {
+        isHovered = false;
+        angle = angle % (2 * Math.PI);
+        if (angle > Math.PI) {
+            angle -= 2 * Math.PI;
+        }
+    });
+
     function animateLogo() {
         if (logoViewer) {
             if (isHovered) {

@@ -32,6 +32,17 @@ body{
     background-repeat: no-repeat;
 }
 
+/* MOBİL İÇİN AYRI ARKA PLAN (PNG Uyumlu) */
+@media(max-width: 800px){
+    .background{
+        background-image:
+            linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
+            url("images/arkaplan-mobil.png");
+        background-size: cover;
+        background-position: center;
+    }
+}
+
 /* NAVBAR (Morlaşma sorunu kesin olarak çözüldü) */
 nav{
     position: fixed;

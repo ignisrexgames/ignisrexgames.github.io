@@ -337,3 +337,48 @@ footer{
 .hero-logo-link:hover .hero-3d-logo {
     rotation-per-second: 50deg; /* Hızlı dönüş */
 }
+/* 3 nokta butonunu varsayılan olarak (bilgisayarda) gizle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Telefonda açılacak menünün kutu tasarımı */
+.dropdown-menu {
+    display: none; /* İlk başta kapalı durur */
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    flex-direction: column;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.dropdown-menu a {
+    padding: 12px 24px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #333;
+}
+
+/* --- TELEFONLAR İÇİN ÖZEL AYAR (Ekran küçülünce devreye girer) --- */
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none !important; /* Bilgisayar menüsünü telefonda gizle */
+    }
+    .menu-toggle {
+        display: block !important; /* 3 nokta butonunu telefonda göster */
+    }
+}

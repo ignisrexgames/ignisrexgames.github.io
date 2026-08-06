@@ -128,3 +128,21 @@ if (heroLogo) {
 
 
 console.log("IGNISREX GAMES SYSTEM ONLINE");
+const menuBtn = document.getElementById('menuBtn');
+const dropdownMenu = document.getElementById('dropdownMenu');
+
+// 3 noktaya tıklandığında menüyü aç/kapat
+menuBtn.addEventListener('click', () => {
+    if (dropdownMenu.style.display === 'flex') {
+        dropdownMenu.style.display = 'none';
+    } else {
+        dropdownMenu.style.display = 'flex';
+    }
+});
+
+// Menüdeki bir seçeneğe tıklandığında menü otomatik kapanıp sayfaya gitsin
+document.querySelectorAll('.dropdown-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        dropdownMenu.style.display = 'none';
+    });
+});

@@ -382,3 +382,27 @@ footer{
         display: block !important; /* 3 nokta butonunu telefonda göster */
     }
 }
+/* 1. Normal Durum (Genel site imleci) */
+body {
+    cursor: url('witch_hand_1_default.png'), auto;
+}
+
+/* 2. Linklerin ve Butonların Üzerine Gelince (Hover) */
+a, button, .menu-toggle {
+    cursor: url('witch_hand_2_hover.png'), pointer;
+}
+
+/* 3. Tıklama Anı (Active) */
+:active {
+    cursor: url('witch_hand_3_click.png'), pointer;
+}
+
+/* 4. Sayfa Yüklenirken veya Bekleme Durumunda */
+progress, .loading {
+    cursor: url('witch_hand_4_wait.png'), wait;
+}
+
+/* 5. Bir Şeyi Sürüklerken (Grab/Drag) */
+:dragging, .draggable {
+    cursor: url('witch_hand_5_hold-drag.png'), grab;
+}

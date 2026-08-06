@@ -37,7 +37,7 @@ body{
     .background{
         background-image:
             linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
-            url("images/arkaplan-mobil.png");
+            url("images/arkaplan.png");
         background-size: cover;
         background-position: center;
     }

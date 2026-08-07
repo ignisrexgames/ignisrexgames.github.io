@@ -1,46 +1,88 @@
 // IGNISREX GAMES
 // Interactive Effects
 
-// CURSOR PRELOAD - Sayfa yüklenirken imleç görsellerinin önbelleğe alınması
-const cursorImages = [
-    'witch_hand_1_default.png',
-    'witch_hand_2_hover.png',
-    'witch_hand_3_click.png',
-    'witch_hand_4_wait.png',
-    'witch_hand_5_hold-drag.png'
-];
+// CUSTOM CURSOR SYSTEM - Tarayıcının ok imlecini tamamen gizler
+(function () {
+    const cursorImages = {
+        default: 'witch_hand_1_default.png',
+        hover: 'witch_hand_2_hover.png',
+        click: 'witch_hand_3_click.png',
+        wait: 'witch_hand_4_wait.png',
+        drag: 'witch_hand_5_hold-drag.png'
+    };
 
-cursorImages.forEach(src => {
-    const img = new Image();
-    img.src = src;
-});
+    const cursor = document.createElement('img');
+    cursor.id = 'custom-cursor';
+    cursor.src = cursorImages.default;
+    cursor.alt = '';
+    cursor.draggable = false;
+    document.body.appendChild(cursor);
 
-// Sayfa yüklenirken bekleme imleci
-function setWaitCursor() {
-    document.documentElement.classList.add('wait-cursor');
-    document.body.classList.add('wait-cursor');
-}
+    let cursorX = -100;
+    let cursorY = -100;
+    let currentState = 'default';
 
-function removeWaitCursor() {
-    document.documentElement.classList.remove('wait-cursor');
-    document.body.classList.remove('wait-cursor');
-}
+    function updateCursor() {
+        cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+    }
 
-setWaitCursor();
-window.addEventListener('load', () => {
-    setTimeout(removeWaitCursor, 300);
-});
+    function setCursor(state) {
+        if (cursorImages[state] && currentState !== state) {
+            cursor.src = cursorImages[state];
+            currentState = state;
+        }
+    }
 
-// Sayfa herhangi bir yerine basılı tutulurken tıklama imleci
-document.addEventListener('mousedown', () => {
-    document.documentElement.classList.add('click-cursor');
-    document.body.classList.add('click-cursor');
-});
+    document.addEventListener('mousemove', (e) => {
+        cursorX = e.clientX;
+        cursorY = e.clientY;
+        updateCursor();
+    });
 
-document.addEventListener('mouseup', () => {
-    document.documentElement.classList.remove('click-cursor');
-    document.body.classList.remove('click-cursor');
-});
+    document.addEventListener('mouseenter', () => {
+        cursor.style.display = 'block';
+    });
+
+    document.addEventListener('mouseleave', () => {
+        cursor.style.display = 'none';
+    });
+
+    document.addEventListener('mousedown', () => {
+        setCursor('click');
+    });
+
+    document.addEventListener('mouseup', () => {
+        setCursor('default');
+    });
+
+    // Hover durumunu tespit et
+    document.addEventListener('mouseover', (e) => {
+        const target = e.target;
+        const isInteractive = target.closest('a, button, .button, .menu-toggle, .dropdown-menu a, input, textarea, select, [role="button"]');
+        if (isInteractive) {
+            setCursor('hover');
+        } else {
+            setCursor('default');
+        }
+    });
+
+    // Sayfa yüklenirken bekleme imleci
+    document.documentElement.classList.add('loading-cursor');
+    setCursor('wait');
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            document.documentElement.classList.remove('loading-cursor');
+            setCursor('default');
+        }, 300);
+    });
+
+    // Tüm cursor img'lerini önbelleğe al
+    Object.values(cursorImages).forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+})();
 
 // SAYFA GİRİŞ ANİMASYONU
 

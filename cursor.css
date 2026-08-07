@@ -1,9 +1,18 @@
 /* IGNISREX CUSTOM CURSOR - Sayfada asla normal ok imleci görünmemeli */
 
+/* Base64 PNG'ler - harici dosya yüklenmesini beklemeden çalışır */
+:root {
+    --cursor-default: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADQUlEQVR4nO2asW7bMBCGfxudAm8dO2gSBKeDnTWP0qVOdj+DkTFzXiBd8hABuhUFMiVZLBia/ADdgoxRh/RUiiYpUTzKpKIfMJBQsnz6dHc8HgWMGjXqI2uiOzDP0lL8P98V2nNj1ifV4DxLy7PP5/XBDCUwPBBKAPmumCBDOX05qcbOkn9ABgpCqXmWlg/3d+XXL4vq8+38e/lwf1fKIRKrGp/iPEvL25srJOlpbXxfbLFabwDE7Q2tDCcIAGog9sUWALBab6KF0NpocvmheYO1sWJI7IttBSNWb5jafiHfFZPVelPdsKgkPcXtzdVBDRGyOj8pMSRIojfEEhLOxqkSpOgdoYcEi2GyN8gzRcjewGqQ6A3AoUeECILdEF3hBByCAN5hqJJmX5C8/IgJAnCYI0SvEcf7gMAeAsB7LqAb00EgEQxTcQX48wi2i8rxD8AKgilk6FoAPwjrQkileZbWls5kLHmCqmgSRVWl7hgVWD6KLJY6gG7+bfYK4DCxuXiBfA7Amx9YANDfOqOakqKNuCEoO0I26ntON4VLF7HkgCaZFlBdxZUPegEA2EFokzQBHgi9AbBRGzfnyCdAzwBCDIUgPQCw8wIXCGwAbA3g8gLXUGCtBLmrNO4pTyU2D1gkSxAEEwjKA0A7L2j7hLuGAQuAfFdMHv/8riD03Rh1yQXekiAZQwbR3/Kq8di5gL0fMH05wc9fPwDU63ZV04PENad3WSd46Qmqmhu69b68weIqWwi99gR9Sg6ly4trvM1eGyF4ywG+py/Tb11eXLf+rremKNCuEeIqunndTTd5gde1vKpPqNpeVx2Tz1HlFVLTEzdB8N7MkOdl02wAmCHQ8aanLuuoAGQ1FSqqnSXALc4BPQTnlpitmrLyar2pNVN9K7jlcL4rJvQRN0ZcpVusBbNJqZPqPQRb9xclh0LwAEgEQtyA6SIZQHAhoBNX+10OhWgAyNtvXIoGgC9FDWCRLJ2vEQUAnfs/75+wSJZOIKIAYNLz/qkC0UXRA3DVYAB09YLBAADaQZALod4XQxyiN1GA/5WhOGY6Xy6oggegewVHPF4by1BiVr/G0TpCHCIAbRqcg1VMr9+PGjUqLv0FGuAirRqN3qAAAAAASUVORK5CYII=');
+    --cursor-hover: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEBUlEQVR4nO1bsUokQRB9ykWu2SXCBRstix6yXmom3A+c4YGcmvsFBmJgYOwPeAim5uJlh2CkIgiL0WYmZq6hYyBv7Onp7unprhlnVh8IY8/sbvXbV9VVXb3AJz42pmw39jpHifr/9njN+mybYZzUXucoORufZMZ+dn4BmDwicpPh5O/7N5nxueEigMkjIjMJdfI/vi5nHrx8OAeQJWISSHAqYPpxJh0fdJcAZImYNDWk2OscJStYTeb7veTi9Dj5/m2Q/v1e/pNcnB4n8/1esoLVZAWriR4w2wTnKkAlHB7sottbyNwf3d1ifWsHQLvV4DRWJwFAhojR3S0AYH1rp7WxodBQfVXwVUNbSPAyUs0LVJcY3d2mZOhqaItLeBvHQGdzCZJBNbTFJUobZnIJQiWjLQEyyCCTSwDIuQOQD5BAs4gINkR3CQDWlUJVA/BGBPBKhimPqIuk6A+xqQHIK0InAnglQy+8OF4HCSIfYAqQ+lIJ5IkAXsnQCy+O60qRsFWH2JvalkoT9BihqkYd15UCyBMhpgA9FnBiNhIIkuFKroDqqlCxGKD7P4BSJLhchu8FyGea0zEvtpXONJZKUCdiAhMo271ubwGHB7s4PNjFff8GZ+OT3JZdKKKWQX3yz7NPAPKBLUYF+jNANt2OVUKUAojn2Sc8zz5hbriYGsbrueGitwqKwGcklfAl9IVMYM6Gb2NqpFaXRkm43CUEIkGQ1yY5Fm2shEDSFWpJN8uSUGc8EIkB0vCRuYSSAEECXMFoe7w2xcDoExDLIDYgihBAiUvuDpdRQQwJ0QSo/k0DfIyQUkGsK4hmgiRBSg3SS54JYjFg0F1KSbCpQY0DgJ8KfL/hUDeIIkANbpcP5ykJqjE0iNdVICYWVLYM0hgaxGu9anzvWCC+HzD9OIN///8CyCYrpk0PQmpND0mOxAmwdY5s9b7eYIlFWRLEt8Qkc/4y0F1pc2M/rVBdJFQWA6pevlyftbmx7/1a0WLIp5EqDU7eNukiFYhXg64+AWBur5vu6c+Y4gpR9I27SKikHDZ1jQjXagC4SeD9om9dR+0EEKbjdqYmiApTZwmI83PATkLwlpgPTH0/dQvNBLUXUKQWCdTepS1KUVXFmGIIUVYBgFkFjWlTEypBtnMIIZMndBIqdYEQqP6p7jrTNdQGjAQapwAd+ooiQYCqgkZuiuqQnLyOVhBQJVpNAM8vx6DRBNi6z8T16AqD7lIUEY0mwAfXo6uUiBC0noBYTAwBoSqYGAIAPxIanwn6gCdRAOROpxQ93/hagCg6gkOwVuCY7cwhUWs5LAlKF8getWWtwDFTue06cNlYBQBZFdhOnbNW4Nh7njuuBPwBV5t/mBWNDz35T1SMF7MOiEKaVEU+AAAAAElFTkSuQmCC');
+    --cursor-click: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAGG0lEQVR4nO2bz2ucRRzGPzPv7ja7G4ktlkZ7WBBiMRBaECko+Ivao6WCCGJqUhUESS+lp7SW1gYs2ir0ZC/W5g/IRTxFPVR7qzYEirE9mEMlWJvWJPsju+874yHO2zdv3v2RfWeT3epzenl33t2Z532+z3xnvrNiLDveNZofLAGcyHy5TQjxotZ6r9b6msL7QqEXEHpaa/WN0vpngfg9LbPFU4X3vDOZy48eLxy6TwdDAIxlx8mrxbQU8iWt9ZsI/Y6rXRQKjUZrNS+RcyC+lUL+kCB5dYvocj8qDC9t9gDiwgF4Rr4ggV6NOqDxjri6QlmVqehlXCoovLQSarsQ4jmN1kBRCDm/P/lG9vvKREeTkABQWjnAUxo9olBUvDIVXcHVFRQKBDhCkpApkiL5tqM9NyETqiKWpza5/7GxQgDqCaXVAa11wsOjrMu+AjxclFBIJEmVIuWk2CK6hj4vHhve7M7bgARQKFeh/lKoiqc9PO3h6gplvUxJFymqAgW1xJL+m0V3gfvuPEe7zunN7rwNJI6kPhEanQduafQtIcSzCECA0goXl7JYRkhwHMl8+jZuusQfc7OMZcc1wGh+UGzuMJqHBDRQAKakcK5JpJeUKRyZQDoOoCltWeJOzyy3e36j98nHOHf5XeZ2TTOZn2AyP+ET0YkQJ9IXnZIqUtaljCMS+xF87OE+vaxK5L1F8iyy962dvPbhK2zd0e0/OHvzBkMjJwHonRlgX/Yg0HlqEGPZ8R5g8a77p0iK5E4hxPse3vGKLlPSRRbce9zN3Gbk/Ktsz3WT6+v3H569eQOAoZGT9M4MALAve7CjSJDAEsD55aNeQqTuJETqSlKkLqZllrTI0JPYxtbC4xz77FOGRk76gwbI9fWT6+vn0oVTzO2a9sOik0Ji1Zs6nbnU5eF2ebi9Zwof/Ho6+5Ve8O6dQ4ij14pXAJjbNc2lC6fI9fUze/OGr4iwGjolJPzOjWXHHwF2jOYHbwUbnMlefv54/tBP5q1O5id8EoBVBBhSOikkggQIVhIjB0iN5gcX/r3vjOYHvUA7bUgAfCJgNRmdYpBNdciQAFRVg0FYDdBeRDTdkXBIAGuIgLVqgAdEwAoZUaa5USTF/pFqaoC1iggTAStkmOeD2CjvsPIDUQYZVIFBmAhYIcMoKIigd0DrFGHtS6OUEEUCrPWIoGqC98NKAftEWFNA2AvMwKqRYGDICLcLegfQsmnVmgeE4x9YFwm1QsZ8FzwIDVskyDgPBwcvlzL+fdNZo4TgQKJgEqhqn5l026TcNtPtWNNgePCquwCsNbY4Kgi3gdXpdlwlxFKAgeouoLoL9M4M+B0z170zAw2roB5MG5tKSDT7oElgJmce3As6dXBqtIla4dIMrJiguY6SY9gkG3nT9WAzFDYk3VwvCRvpB1Y8wDYakbkNJYFFAmqZ0Wh+UBhjbMQQ14O4hmiFACNxm1th61FBHBJiExCMb9OBRjphSwVxQ8FqJmi7VmB7youCNQ/Yndvjk1BNDUEfgMZU0OgbbjYMYhEQNLdf7l71SQh2xnTIXLcCcbygZdNguFZgrsOrxs32Auv7AXIpw3c/fg2sTlaiNj0MbM3pzSRH1gmIyvRqrffDBZa4WC8J1rfEbOb860E4lA4Pn/VXqLVIaJkHtHr6qvVbh4fPNvys1cVQ1N5gq5VgBl9t0PVUYH01WKtOAGuLJtU+C7eJ8hWDem+8FgktWQ5HVY0Mas0GUJsE83m9tx7GhhNgEFSDQVQRJIioyhLEi3OoTkLTW2KNIKruF9xCi0KwFlBPLTaw4VXaeilqUDFRHmKwXgVAtArapkxtECSo2jmEZgZvECahpSHQDILxGdx1NqERLMDYQNspIIzwjGKDgKAK2nJTNAybgw+jIwhoJTqagN25PbG/o60JqFZ9Npiavc7u3J5YRLQ1AY1gava6T0Qz6HgC4uKhIaBZFTw0BEBjJLR9JtgIzEkUYM3plHrt234tYFDvCI6BWSuYe9XOHBps6HLYJox0YfVRW7NWMPeiltu1Dly2rQJgtQqqnToP/3FrM88dtwRj2XH9Mq83VHF+aPGfHvz/aDH+AVaOY1ymPZ0jAAAAAElFTkSuQmCC');
+    --cursor-wait: url('data:image/png;base64,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');
+    --cursor-drag: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAADxklEQVR4nO2bv47TQBDGv0RUUToeIJUVJQ3Q8gK8Rl4gQlSUuXsBJHQ9HAW8A0h06CSqg+aiyFUe4LooZUKBJjfem92d/WPHBv+kSJecvd759vPsrDcBenp6enp6ev5XBnU2PpsWR/5+vSlrvV4MUR0yAyN4gLNpcXzx9CUA4Pf2FwDgMN6Lx56T4E7wwICH4IBqgABwfXVpbWexXHmv1YRI0Q6g4N5ffD2J8OHj28pxPEguxqSYY1veea/Dz69LjOhG6TagwCbF/NExPEibGDZMkej83EIkN8aFkEQgbGLYMIWl8xfLVVYRvA3ZEh7wdzR+fvtypI653MAJsb8kRE43OBswEx7gTnqEz+I+gYDqiNvazOEGlQOGu9Hp/bPJ89Pfry9eief4LK7NAcBjIcx2UkVQnUhZXzNygN/iKTlAaqd2AYDq1Mc7FkNMDuDkTIxBJ/GEmEsMGz7r8+tSYowRIbkO4B3ihCQ67fRJSO5oXACONFXaEp2tYApxEXcH5aZYF9RWa9vqB22toIE7KDYfPEnuBarB0sVtnVgsV94SOhRNUrWRPQdopyZtCe2Dbh+z1Na6INgB5iIIqI4ifU4jDchi0GeL5cpaY4TkBu0K0yR4GpSqwnef3zw6NmREXIWWa6aQ/heaDIMKIde64PuPT9ZzNZ3yVZtcUDNg8z2gvw2GvgOI9aYc3N7fgL8O4/3ptS3vrBacFHNcX106V5ZmAFIbkjix1ieyTYOapGZbypplNhA2O3AXhDogex3Ag3Hdt5onRCGLr9g8UEshpHWDi9CpMdYFte8LaB6VmR3PWRz5RFAnwRjWm3KwWK6co82DpUTnSqhatCLWKgCgE8HElvFD0bRRuwBAnAhN0YgAnKZF8NUfjQlALgCaF8FFow4wRdAmuzoFO8sOrVT5cUIXRS5802HjOQCoOkFCcgafIrVojj2LAIBfBEAOIHXxY3I2AQCdCBIhT5x9tOJbGtJTJpOUXSnX9wxaIQDh22sAwvYQKHD+FOsw3ldEaJUAHM0ulG+0eeAcLkJrBeD4pk1AHm0bnRMAkEXQjLZEJwUAHkQIGW0bJELnBADSAidIgLPWASHQnsRwN6p8SyUGfgu0XoDZtDiaGzKpDHejk5uybI7WgcvufEMmlVYKkHvEXbTqFgi1e2ouAFrkgCZHndMqB8SQ6oLOCpDD/kBHBTCDDxWjlXXAelMOaKs9Bq0InVgO86WwmRh5oLf3N6e/zZ/nSJjBAy0VgMNnBzN432+UOFLwQAcEAOTvHErB+H7bkLtf/wR/ANLNxvUXlCHoAAAAAElFTkSuQmCC');
+}
+
 /* 1. Normal Durum (Genel site imleci) */
 html,
 body {
-    cursor: url('witch_hand_1_default.png') 12 12, auto;
+    cursor: var(--cursor-default) 12 12, auto;
 }
 
 /* 2. Tüm elementler varsayılan olarak html/body imlecini miras alsın */
@@ -22,7 +31,7 @@ button,
 input[type="submit"],
 input[type="button"],
 [role="button"] {
-    cursor: url('witch_hand_2_hover.png') 12 12, auto;
+    cursor: var(--cursor-hover) 12 12, auto;
 }
 
 /* 4. Tıklama Anı (Active) - Sayfanın herhangi bir yerine basınca */
@@ -37,7 +46,7 @@ input[type="button"]:active,
 html:active,
 body:active,
 *:active {
-    cursor: url('witch_hand_3_click.png') 12 12, auto !important;
+    cursor: var(--cursor-click) 12 12, auto !important;
 }
 
 /* 4.5 JavaScript ile eklenen click-cursor sınıfı */
@@ -45,7 +54,7 @@ html.click-cursor,
 body.click-cursor,
 html.click-cursor *,
 body.click-cursor * {
-    cursor: url('witch_hand_3_click.png') 12 12, auto !important;
+    cursor: var(--cursor-click) 12 12, auto !important;
 }
 
 /* 5. Sayfa Yüklenirken veya Bekleme Durumunda */
@@ -57,13 +66,13 @@ html.wait-cursor *,
 body.wait-cursor *,
 progress,
 .loading {
-    cursor: url('witch_hand_4_wait.png') 12 12, auto !important;
+    cursor: var(--cursor-wait) 12 12, auto !important;
 }
 
 /* 6. Bir Şeyi Sürüklerken (Grab/Drag) */
 .draggable,
 .draggable:active {
-    cursor: url('witch_hand_5_hold-drag.png') 12 12, auto;
+    cursor: var(--cursor-drag) 12 12, auto;
 }
 
 /* 7. Seçim, input ve textarea alanlarında da özel imleç */
@@ -71,28 +80,28 @@ input,
 textarea,
 select,
 [contenteditable] {
-    cursor: url('witch_hand_2_hover.png') 12 12, auto;
+    cursor: var(--cursor-hover) 12 12, auto;
 }
 
 input:active,
 textarea:active,
 select:active,
 [contenteditable]:active {
-    cursor: url('witch_hand_3_click.png') 12 12, auto;
+    cursor: var(--cursor-click) 12 12, auto;
 }
 
 /* 8. model-viewer gibi shadow-DOM elementlerinde de default imleç */
 model-viewer,
 .hero-3d-logo,
 .hero-logo-container {
-    cursor: url('witch_hand_1_default.png') 12 12, auto !important;
+    cursor: var(--cursor-default) 12 12, auto !important;
 }
 
 /* 9. Tarayıcı tarafından zorlanan cursor tiplerini engelle */
 html {
-    cursor: url('witch_hand_1_default.png') 12 12, auto !important;
+    cursor: var(--cursor-default) 12 12, auto !important;
 }
 
 body {
-    cursor: url('witch_hand_1_default.png') 12 12, auto !important;
+    cursor: var(--cursor-default) 12 12, auto !important;
 }

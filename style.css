@@ -333,9 +333,10 @@ footer{
     --poster-color: transparent; /* Yüklenirken arka planı şeffaf yapar */
 }
 
-/* (İsteğe bağlı) Fare üzerine gelince dönmeyi hızlandır */
-.hero-logo-link:hover .hero-3d-logo {
-    rotation-per-second: 50deg; /* Hızlı dönüş */
+/* Fare üzerine gelince dönmeyi hızlandır */
+.hero-logo-link:hover .hero-3d-logo  {
+    transform: rotate(360deg);
+    transition: transform 0.5s ease;
 }
 /* 3 nokta butonunu varsayılan olarak (bilgisayarda) gizle */
 .menu-toggle {
@@ -405,4 +406,4 @@ progress, .loading {
 /* 5. Bir Şeyi Sürüklerken (Grab/Drag) */
 :dragging, .draggable {
     cursor: url('witch_hand_5_hold-drag.png'), grab;
-}
+} 

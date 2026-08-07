@@ -333,9 +333,10 @@ footer{
     --poster-color: transparent; /* Yüklenirken arka planı şeffaf yapar */
 }
 
-/* (İsteğe bağlı) Fare üzerine gelince dönmeyi hızlandır */
+/* Fare üzerine gelince dönmeyi hızlandır */
 .hero-logo-link:hover .hero-3d-logo  {
-    /*rotation-per-second: 50deg; /* Hızlı dönüş */
+    transform: rotate(360deg);
+    transition: transform 0.5s ease;
 }
 /* 3 nokta butonunu varsayılan olarak (bilgisayarda) gizle */
 .menu-toggle {

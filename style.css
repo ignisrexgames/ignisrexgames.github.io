@@ -265,18 +265,6 @@ footer{
     color: #888;
 }
 
-@keyframes fade{
-    from{
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* MOBİL */
 @media(max-width: 800px){
     nav{
         padding: 20px;
@@ -404,6 +392,6 @@ progress, .loading {
 }
 
 /* 5. Bir Şeyi Sürüklerken (Grab/Drag) */
-:dragging, .draggable {
+.draggable {
     cursor: url('witch_hand_5_hold-drag.png'), grab;
 } 

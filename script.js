@@ -1,6 +1,47 @@
 // IGNISREX GAMES
 // Interactive Effects
 
+// CURSOR PRELOAD - Sayfa yüklenirken imleç görsellerinin önbelleğe alınması
+const cursorImages = [
+    'witch_hand_1_default.png',
+    'witch_hand_2_hover.png',
+    'witch_hand_3_click.png',
+    'witch_hand_4_wait.png',
+    'witch_hand_5_hold-drag.png'
+];
+
+cursorImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+});
+
+// Sayfa yüklenirken bekleme imleci
+function setWaitCursor() {
+    document.documentElement.classList.add('wait-cursor');
+    document.body.classList.add('wait-cursor');
+}
+
+function removeWaitCursor() {
+    document.documentElement.classList.remove('wait-cursor');
+    document.body.classList.remove('wait-cursor');
+}
+
+setWaitCursor();
+window.addEventListener('load', () => {
+    setTimeout(removeWaitCursor, 300);
+});
+
+// Sayfa herhangi bir yerine basılı tutulurken tıklama imleci
+document.addEventListener('mousedown', () => {
+    document.documentElement.classList.add('click-cursor');
+    document.body.classList.add('click-cursor');
+});
+
+document.addEventListener('mouseup', () => {
+    document.documentElement.classList.remove('click-cursor');
+    document.body.classList.remove('click-cursor');
+});
+
 // SAYFA GİRİŞ ANİMASYONU
 
 document.body.animate(
@@ -132,17 +173,19 @@ const menuBtn = document.getElementById('menuBtn');
 const dropdownMenu = document.getElementById('dropdownMenu');
 
 // 3 noktaya tıklandığında menüyü aç/kapat
-menuBtn.addEventListener('click', () => {
-    if (dropdownMenu.style.display === 'flex') {
-        dropdownMenu.style.display = 'none';
-    } else {
-        dropdownMenu.style.display = 'flex';
-    }
-});
-
-// Menüdeki bir seçeneğe tıklandığında menü otomatik kapanıp sayfaya gitsin
-document.querySelectorAll('.dropdown-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        dropdownMenu.style.display = 'none';
+if (menuBtn && dropdownMenu) {
+    menuBtn.addEventListener('click', () => {
+        if (dropdownMenu.style.display === 'flex') {
+            dropdownMenu.style.display = 'none';
+        } else {
+            dropdownMenu.style.display = 'flex';
+        }
     });
-});
+
+    // Menüdeki bir seçeneğe tıklandığında menü otomatik kapanıp sayfaya gitsin
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            dropdownMenu.style.display = 'none';
+        });
+    });
+}

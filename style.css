@@ -105,6 +105,13 @@ nav ul a:hover{
     animation: fade 1.5s;
 }
 
+.hero-text,
+.hero-logo-container,
+model-viewer,
+.hero-3d-logo {
+    cursor: url('witch_hand_1_default.png') 12 12, auto;
+}
+
 /* Fare üzerine gelince dönen logo ayarları */
 .hero-logo-link{
     display: inline-block;
@@ -372,26 +379,42 @@ footer{
     }
 }
 /* 1. Normal Durum (Genel site imleci) */
+html,
 body {
-    cursor: url('witch_hand_1_default.png'), auto;
+    cursor: url('witch_hand_1_default.png') 12 12, auto;
 }
 
 /* 2. Linklerin ve Butonların Üzerine Gelince (Hover) */
-a, button, .menu-toggle {
-    cursor: url('witch_hand_2_hover.png'), pointer;
+a,
+button,
+.menu-toggle,
+.button,
+.dropdown-menu a {
+    cursor: url('witch_hand_2_hover.png') 12 12, pointer;
 }
 
 /* 3. Tıklama Anı (Active) */
-:active {
-    cursor: url('witch_hand_3_click.png'), pointer;
+a:active,
+button:active,
+.menu-toggle:active,
+.button:active,
+.dropdown-menu a:active {
+    cursor: url('witch_hand_3_click.png') 12 12, pointer;
 }
 
 /* 4. Sayfa Yüklenirken veya Bekleme Durumunda */
-progress, .loading {
-    cursor: url('witch_hand_4_wait.png'), wait;
+progress,
+.loading,
+html.loading,
+body.loading {
+    cursor: url('witch_hand_4_wait.png') 12 12, wait;
 }
 
 /* 5. Bir Şeyi Sürüklerken (Grab/Drag) */
 .draggable {
-    cursor: url('witch_hand_5_hold-drag.png'), grab;
+    cursor: url('witch_hand_5_hold-drag.png') 12 12, grab;
+}
+
+.draggable:active {
+    cursor: url('witch_hand_5_hold-drag.png') 12 12, grabbing;
 } 

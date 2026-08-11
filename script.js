@@ -16,11 +16,23 @@
     cursor.src = cursorImages.default;
     cursor.alt = '';
     cursor.draggable = false;
+    cursor.style.position = 'fixed';
+    cursor.style.top = '0';
+    cursor.style.left = '0';
+    cursor.style.width = '32px';
+    cursor.style.height = '32px';
+    cursor.style.pointerEvents = 'none';
+    cursor.style.zIndex = '999999';
+    cursor.style.transform = 'translate(-100px, -100px) translate(-50%, -50%)';
+    cursor.style.imageRendering = 'pixelated';
+    cursor.style.willChange = 'transform';
     document.body.appendChild(cursor);
 
     let cursorX = -100;
     let cursorY = -100;
     let currentState = 'default';
+    let isMoving = false;
+    let moveTimeout;
 
     function updateCursor() {
         cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
@@ -37,6 +49,11 @@
         cursorX = e.clientX;
         cursorY = e.clientY;
         updateCursor();
+        isMoving = true;
+        clearTimeout(moveTimeout);
+        moveTimeout = setTimeout(() => {
+            isMoving = false;
+        }, 50);
     });
 
     document.addEventListener('mouseenter', () => {
@@ -55,7 +72,6 @@
         setCursor('default');
     });
 
-    // Hover durumunu tespit et
     document.addEventListener('mouseover', (e) => {
         const target = e.target;
         const isInteractive = target.closest('a, button, .button, .menu-toggle, .dropdown-menu a, input, textarea, select, [role="button"]');
@@ -66,7 +82,6 @@
         }
     });
 
-    // Sayfa yüklenirken bekleme imleci
     document.documentElement.classList.add('loading-cursor');
     setCursor('wait');
 
@@ -74,10 +89,9 @@
         setTimeout(() => {
             document.documentElement.classList.remove('loading-cursor');
             setCursor('default');
-        }, 300);
+        }, 100);
     });
 
-    // Tüm cursor img'lerini önbelleğe al
     Object.values(cursorImages).forEach(src => {
         const img = new Image();
         img.src = src;

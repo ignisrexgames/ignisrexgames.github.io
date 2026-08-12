@@ -3,10 +3,10 @@
 /* 1. Normal Durum (Genel site imleci) */
 html,
 body {
-    cursor: url('witch_hand_1_default.png') 12 12, auto;
+    cursor: url('witch_hand_1_default.png') 12 12, auto !important;
 }
 
-/* 2. Tüm elementler varsayılan olarak html/body imlecini miras alsın */
+/* 2. Tüm elementler varsayılan olarak html/body imlecini miras alsın ama kendi cursor kurallarına izin ver */
 *,
 *::before,
 *::after {
@@ -22,10 +22,10 @@ button,
 input[type="submit"],
 input[type="button"],
 [role="button"] {
-    cursor: url('witch_hand_2_hover.png') 12 12, auto;
+    cursor: url('witch_hand_2_hover.png') 12 12, auto !important;
 }
 
-/* 4. Tıklama Anı (Active) - Sayfanın herhangi bir yerine basınca */
+/* 4. Tıklama Anı (Active) */
 a:active,
 button:active,
 .menu-toggle:active,
@@ -33,18 +33,7 @@ button:active,
 .dropdown-menu a:active,
 input[type="submit"]:active,
 input[type="button"]:active,
-[role="button"]:active,
-html:active,
-body:active,
-*:active {
-    cursor: url('witch_hand_3_click.png') 12 12, auto !important;
-}
-
-/* 4.5 JavaScript ile eklenen click-cursor sınıfı */
-html.click-cursor,
-body.click-cursor,
-html.click-cursor *,
-body.click-cursor * {
+[role="button"]:active {
     cursor: url('witch_hand_3_click.png') 12 12, auto !important;
 }
 
@@ -63,7 +52,7 @@ progress,
 /* 6. Bir Şeyi Sürüklerken (Grab/Drag) */
 .draggable,
 .draggable:active {
-    cursor: url('witch_hand_5_hold-drag.png') 12 12, auto;
+    cursor: url('witch_hand_5_hold-drag.png') 12 12, auto !important;
 }
 
 /* 7. Seçim, input ve textarea alanlarında da özel imleç */
@@ -71,28 +60,19 @@ input,
 textarea,
 select,
 [contenteditable] {
-    cursor: url('witch_hand_2_hover.png') 12 12, auto;
+    cursor: url('witch_hand_2_hover.png') 12 12, auto !important;
 }
 
 input:active,
 textarea:active,
 select:active,
 [contenteditable]:active {
-    cursor: url('witch_hand_3_click.png') 12 12, auto;
+    cursor: url('witch_hand_3_click.png') 12 12, auto !important;
 }
 
-/* 8. model-viewer gibi shadow-DOM elementlerinde de default imleç */
+/* 8. model-viewer ve shadow-DOM elementlerinde de default imleç */
 model-viewer,
 .hero-3d-logo,
 .hero-logo-container {
-    cursor: url('witch_hand_1_default.png') 12 12, auto !important;
-}
-
-/* 9. Tarayıcı tarafından zorlanan cursor tiplerini engelle */
-html {
-    cursor: url('witch_hand_1_default.png') 12 12, auto !important;
-}
-
-body {
     cursor: url('witch_hand_1_default.png') 12 12, auto !important;
 }

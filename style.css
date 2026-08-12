@@ -326,6 +326,7 @@ footer{
     width: 150px;
     height: 150px;
     --poster-color: transparent;
+    transition: transform 0.5s ease;
 }
 
 model-viewer {
@@ -340,6 +341,15 @@ model-viewer {
     right: 60px;
     bottom: 60px;
 }
+
+.hero-logo-link:hover .hero-3d-logo {
+    transform: rotate(360deg);
+}
+
+.hero-logo-link .hero-3d-logo {
+    transform: rotate(0deg);
+}
+
 /* 3 nokta butonunu varsayılan olarak (bilgisayarda) gizle */
 .menu-toggle {
     display: none;

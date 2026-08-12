@@ -1,71 +1,24 @@
-/* IGNISREX CUSTOM CURSOR - Sayfada sadece 1 küçük özel imleç */
+/* IGNISREX CUSTOM CURSOR - Sadece tek özel imleç */
 
-html,
-body {
-    cursor: url('witch_hand_1_default.png') 12 12, none !important;
+* {
+    cursor: url('witch_hand_1_default.png') 6 6, none !important;
 }
 
-html *,
-body *,
-*::before,
-*::after {
-    cursor: inherit !important;
+a, button, .menu-toggle, .button, .dropdown-menu a,
+input[type="submit"], input[type="button"], [role="button"] {
+    cursor: url('witch_hand_2_hover.png') 6 6, none !important;
 }
 
-a,
-button,
-.menu-toggle,
-.button,
-.dropdown-menu a,
-input[type="submit"],
-input[type="button"],
-[role="button"] {
-    cursor: url('witch_hand_2_hover.png') 12 12, none !important;
+a:active, button:active, .menu-toggle:active, .button:active,
+.dropdown-menu a:active, input[type="submit"]:active,
+input[type="button"]:active, [role="button"]:active {
+    cursor: url('witch_hand_3_click.png') 6 6, none !important;
 }
 
-a:active,
-button:active,
-.menu-toggle:active,
-.button:active,
-.dropdown-menu a:active,
-input[type="submit"]:active,
-input[type="button"]:active,
-[role="button"]:active {
-    cursor: url('witch_hand_3_click.png') 12 12, none !important;
+html.loading, body.loading, .loading, progress {
+    cursor: url('witch_hand_4_wait.png') 6 6, none !important;
 }
 
-html.loading,
-body.loading,
-html.wait-cursor,
-body.wait-cursor,
-html.wait-cursor *,
-body.wait-cursor *,
-progress,
-.loading {
-    cursor: url('witch_hand_4_wait.png') 12 12, none !important;
-}
-
-.draggable,
-.draggable:active {
-    cursor: url('witch_hand_5_hold-drag.png') 12 12, none !important;
-}
-
-input,
-textarea,
-select,
-[contenteditable] {
-    cursor: url('witch_hand_2_hover.png') 12 12, none !important;
-}
-
-input:active,
-textarea:active,
-select:active,
-[contenteditable]:active {
-    cursor: url('witch_hand_3_click.png') 12 12, none !important;
-}
-
-model-viewer,
-.hero-3d-logo,
-.hero-logo-container {
-    cursor: url('witch_hand_1_default.png') 12 12, none !important;
+.draggable, .draggable:active {
+    cursor: url('witch_hand_5_hold-drag.png') 6 6, none !important;
 }

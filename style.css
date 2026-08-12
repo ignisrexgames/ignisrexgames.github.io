@@ -323,15 +323,22 @@ footer{
 
 /* YENİ: 3D Görüntüleyiciyi Boyutlandırma */
 .hero-3d-logo {
-    width: 150px; /* Logonun ekranda kaplayacağı genişlik */
-    height: 150px; /* Logonun ekranda kaplayacağı yükseklik */
-    --poster-color: transparent; /* Yüklenirken arka planı şeffaf yapar */
+    width: 150px;
+    height: 150px;
+    --poster-color: transparent;
 }
 
-/* Fare üzerine gelince dönmeyi hızlandır */
-.hero-logo-link:hover .hero-3d-logo  {
-    transform: rotate(360deg);
-    transition: transform 0.5s ease;
+model-viewer {
+    width: 150px;
+    height: 150px;
+}
+
+.hero-logo-container {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
 }
 /* 3 nokta butonunu varsayılan olarak (bilgisayarda) gizle */
 .menu-toggle {
@@ -339,7 +346,6 @@ footer{
     background: none;
     border: none;
     font-size: 24px;
-    cursor: pointer;
     color: white;
 }
 

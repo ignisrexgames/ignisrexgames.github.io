@@ -1,19 +1,17 @@
-/* IGNISREX CUSTOM CURSOR - Sayfada asla normal ok imleci görünmemeli */
+/* IGNISREX CUSTOM CURSOR - Sayfada sadece 1 küçük özel imleç */
 
-/* 1. Normal Durum (Genel site imleci) */
 html,
 body {
-    cursor: url('witch_hand_1_default.png') 12 12, auto !important;
+    cursor: url('witch_hand_1_default.png') 12 12, none !important;
 }
 
-/* 2. Tüm elementler varsayılan olarak html/body imlecini miras alsın ama kendi cursor kurallarına izin ver */
-*,
+html *,
+body *,
 *::before,
 *::after {
-    cursor: inherit;
+    cursor: inherit !important;
 }
 
-/* 3. Linklerin ve Butonların Üzerine Gelince (Hover) */
 a,
 button,
 .menu-toggle,
@@ -22,10 +20,9 @@ button,
 input[type="submit"],
 input[type="button"],
 [role="button"] {
-    cursor: url('witch_hand_2_hover.png') 12 12, auto !important;
+    cursor: url('witch_hand_2_hover.png') 12 12, none !important;
 }
 
-/* 4. Tıklama Anı (Active) */
 a:active,
 button:active,
 .menu-toggle:active,
@@ -34,10 +31,9 @@ button:active,
 input[type="submit"]:active,
 input[type="button"]:active,
 [role="button"]:active {
-    cursor: url('witch_hand_3_click.png') 12 12, auto !important;
+    cursor: url('witch_hand_3_click.png') 12 12, none !important;
 }
 
-/* 5. Sayfa Yüklenirken veya Bekleme Durumunda */
 html.loading,
 body.loading,
 html.wait-cursor,
@@ -46,33 +42,30 @@ html.wait-cursor *,
 body.wait-cursor *,
 progress,
 .loading {
-    cursor: url('witch_hand_4_wait.png') 12 12, auto !important;
+    cursor: url('witch_hand_4_wait.png') 12 12, none !important;
 }
 
-/* 6. Bir Şeyi Sürüklerken (Grab/Drag) */
 .draggable,
 .draggable:active {
-    cursor: url('witch_hand_5_hold-drag.png') 12 12, auto !important;
+    cursor: url('witch_hand_5_hold-drag.png') 12 12, none !important;
 }
 
-/* 7. Seçim, input ve textarea alanlarında da özel imleç */
 input,
 textarea,
 select,
 [contenteditable] {
-    cursor: url('witch_hand_2_hover.png') 12 12, auto !important;
+    cursor: url('witch_hand_2_hover.png') 12 12, none !important;
 }
 
 input:active,
 textarea:active,
 select:active,
 [contenteditable]:active {
-    cursor: url('witch_hand_3_click.png') 12 12, auto !important;
+    cursor: url('witch_hand_3_click.png') 12 12, none !important;
 }
 
-/* 8. model-viewer ve shadow-DOM elementlerinde de default imleç */
 model-viewer,
 .hero-3d-logo,
 .hero-logo-container {
-    cursor: url('witch_hand_1_default.png') 12 12, auto !important;
+    cursor: url('witch_hand_1_default.png') 12 12, none !important;
 }

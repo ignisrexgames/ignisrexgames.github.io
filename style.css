@@ -105,13 +105,6 @@ nav ul a:hover{
     animation: fade 1.5s;
 }
 
-.hero-text,
-.hero-logo-container,
-model-viewer,
-.hero-3d-logo {
-    cursor: url('witch_hand_1_default.png') 12 12, auto;
-}
-
 /* Fare üzerine gelince dönen logo ayarları */
 .hero-logo-link{
     display: inline-block;

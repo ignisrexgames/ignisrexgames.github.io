@@ -1,0 +1,32 @@
+:root {
+    --cursor-size: 32px;
+}
+
+/* Tarayıcının kendi imlecini tamamen gizle */
+html,
+body,
+* {
+    cursor: none !important;
+}
+
+/* Özel imleç elementi */
+#custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    pointer-events: none;
+    z-index: 999999;
+    transform: translate(-50%, -50%);
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    will-change: transform;
+    display: none;
+}
+
+/* İmleç yüklenene kadar body'de cursor none kalsın */
+html.loading-cursor,
+html.loading-cursor * {
+    cursor: none !important;
+}

@@ -31,6 +31,8 @@
     let cursorX = -100;
     let cursorY = -100;
     let currentState = 'default';
+    let isMoving = false;
+    let moveTimeout;
 
     function updateCursor() {
         cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
@@ -47,7 +49,12 @@
         cursorX = e.clientX;
         cursorY = e.clientY;
         updateCursor();
-    }, { passive: true });
+        isMoving = true;
+        clearTimeout(moveTimeout);
+        moveTimeout = setTimeout(() => {
+            isMoving = false;
+        }, 50);
+    });
 
     document.addEventListener('mouseenter', () => {
         cursor.style.display = 'block';
@@ -68,7 +75,11 @@
     document.addEventListener('mouseover', (e) => {
         const target = e.target;
         const isInteractive = target.closest('a, button, .button, .menu-toggle, .dropdown-menu a, input, textarea, select, [role="button"]');
-        setCursor(isInteractive ? 'hover' : 'default');
+        if (isInteractive) {
+            setCursor('hover');
+        } else {
+            setCursor('default');
+        }
     });
 
     document.documentElement.classList.add('loading-cursor');
@@ -88,97 +99,149 @@
 })();
 
 // SAYFA GİRİŞ ANİMASYONU
-if (document.body) {
-    document.body.animate(
-        [
-            { opacity: 0, transform: 'translateY(20px)' },
-            { opacity: 1, transform: 'translateY(0)' }
-        ],
-        { duration: 700, easing: 'ease-out' }
-    );
+
+document.body.animate(
+[
+    {
+        opacity: 0,
+        transform: "translateY(20px)"
+    },
+    {
+        opacity: 1,
+        transform: "translateY(0)"
+    }
+],
+{
+    duration: 700,
+    easing: "ease-out"
 }
+);
+
+
 
 // NAVBAR SCROLL EFEKTİ
-const nav = document.querySelector('nav');
-if (nav) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.style.background = 'rgba(0,0,0,.9)';
-            nav.style.boxShadow = '0 0 25px rgba(255,106,0,.25)';
-        } else {
-            nav.style.background = 'rgba(0,0,0,.65)';
-            nav.style.boxShadow = 'none';
-        }
-    }, { passive: true });
-}
+
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 50) {
+
+        nav.style.background = "rgba(0,0,0,.9)";
+        nav.style.boxShadow = "0 0 25px rgba(255,106,0,.25)";
+
+    } else {
+
+        nav.style.background = "rgba(0,0,0,.65)";
+        nav.style.boxShadow = "none";
+
+    }
+
+});
+
+
 
 // MOUSE NEON IŞIĞI (Optimize Edildi)
-const light = document.createElement('div');
-light.style.position = 'fixed';
-light.style.width = '250px';
-light.style.height = '250px';
-light.style.borderRadius = '50%';
-light.style.pointerEvents = 'none';
-light.style.background = 'radial-gradient(circle,rgba(255,106,0,.15),transparent 70%)';
-light.style.transform = 'translate(-50%,-50%)';
-light.style.zIndex = '999';
+
+const light = document.createElement("div");
+
+light.style.position = "fixed";
+light.style.width = "250px";
+light.style.height = "250px";
+light.style.borderRadius = "50%";
+light.style.pointerEvents = "none";
+light.style.background =
+"radial-gradient(circle,rgba(255,106,0,.15),transparent 70%)";
+light.style.transform = "translate(-50%,-50%)";
+light.style.zIndex = "999";
+
 document.body.appendChild(light);
 
 let mouseX = 0;
 let mouseY = 0;
 
-document.addEventListener('mousemove', (e) => {
+document.addEventListener("mousemove", (e) => {
+
     mouseX = e.clientX;
     mouseY = e.clientY;
-}, { passive: true });
+
+});
 
 function animateLight() {
-    light.style.left = mouseX + 'px';
-    light.style.top = mouseY + 'px';
+
+    light.style.left = mouseX + "px";
+    light.style.top = mouseY + "px";
+
     requestAnimationFrame(animateLight);
+
 }
 
-requestAnimationFrame(animateLight);
+animateLight();
+
+
 
 // OYUN KARTLARI HOVER
-const cards = document.querySelectorAll('.game-box');
+
+const cards = document.querySelectorAll(".game-box");
+
 cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
+
+    card.addEventListener("mousemove", (e) => {
+
         const rect = card.getBoundingClientRect();
+
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
+
         card.style.transform = `
             perspective(600px)
             rotateX(${-(y - rect.height / 2) / 20}deg)
             rotateY(${(x - rect.width / 2) / 20}deg)
             translateY(-8px)
         `;
+
     });
 
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "";
+
     });
+
 });
 
-// MENÜ
-const menuBtn = document.getElementById('menuBtn');
-const dropdownMenu = document.getElementById('dropdownMenu');
 
-if (menuBtn && dropdownMenu) {
-    menuBtn.addEventListener('click', () => {
-        const isOpen = dropdownMenu.style.display === 'flex';
-        dropdownMenu.style.display = isOpen ? 'none' : 'flex';
-        menuBtn.setAttribute('aria-expanded', String(!isOpen));
-        dropdownMenu.setAttribute('aria-hidden', String(isOpen));
-    });
 
-    document.querySelectorAll('.dropdown-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            dropdownMenu.style.display = 'none';
-            menuBtn.setAttribute('aria-expanded', 'false');
-            dropdownMenu.setAttribute('aria-hidden', 'true');
-        });
+// ANA SAYFA LOGO DÖNME EFEKTİ (UNUTULMADI)
+
+const heroLogo = document.querySelector(".hero-logo-link");
+
+if (heroLogo) {
+    heroLogo.addEventListener("click", (e) => {
+        // İstersen tıklayınca da ekstra efekt verebilirsin
     });
 }
 
-console.log('IGNISREX GAMES SYSTEM ONLINE');
+
+
+console.log("IGNISREX GAMES SYSTEM ONLINE");
+const menuBtn = document.getElementById('menuBtn');
+const dropdownMenu = document.getElementById('dropdownMenu');
+
+// 3 noktaya tıklandığında menüyü aç/kapat
+if (menuBtn && dropdownMenu) {
+    menuBtn.addEventListener('click', () => {
+        if (dropdownMenu.style.display === 'flex') {
+            dropdownMenu.style.display = 'none';
+        } else {
+            dropdownMenu.style.display = 'flex';
+        }
+    });
+
+    // Menüdeki bir seçeneğe tıklandığında menü otomatik kapanıp sayfaya gitsin
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            dropdownMenu.style.display = 'none';
+        });
+    });
+}

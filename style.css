@@ -27,6 +27,18 @@ body{
     background-image:
         linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
         url("images/background.jpg");
+    background-image:
+        linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
+        -webkit-image-set(
+            url("images/background.webp") type("image/webp"),
+            url("images/background.jpg") type("image/jpeg")
+        );
+    background-image:
+        linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
+        image-set(
+            url("images/background.webp") type("image/webp"),
+            url("images/background.jpg") type("image/jpeg")
+        );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -38,6 +50,18 @@ body{
         background-image:
             linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
             url("images/arkaplan.png");
+        background-image:
+            linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
+            -webkit-image-set(
+                url("images/arkaplan.webp") type("image/webp"),
+                url("images/arkaplan.png") type("image/png")
+            );
+        background-image:
+            linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
+            image-set(
+                url("images/arkaplan.webp") type("image/webp"),
+                url("images/arkaplan.png") type("image/png")
+            );
         background-size: cover;
         background-position: center;
     }

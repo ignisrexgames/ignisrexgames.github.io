@@ -133,7 +133,7 @@ nav ul a:hover{
 .hero-logo-container,
 model-viewer,
 .hero-3d-logo {
-    cursor: url('witch_hand_1_default.png') 12 12, auto;
+    /* cursor cursor.css'ten yönetiliyor */
 }
 
 /* Fare üzerine gelince dönen logo ayarları */
@@ -141,6 +141,34 @@ model-viewer,
     display: inline-block;
     perspective: 1000px;
     text-decoration: none;
+}
+
+.hero-3d-logo {
+    width: 150px;
+    height: 150px;
+    --poster-color: transparent;
+    transition: transform 0.5s ease;
+}
+
+model-viewer {
+    width: 150px;
+    height: 150px;
+}
+
+.hero-logo-container {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
+}
+
+.hero-logo-link:hover .hero-3d-logo {
+    transform: rotate(360deg);
+}
+
+.hero-logo-link .hero-3d-logo {
+    transform: rotate(0deg);
 }
 
 .hero-logo{
@@ -363,7 +391,6 @@ footer{
     background: none;
     border: none;
     font-size: 24px;
-    cursor: pointer;
     color: white;
 }
 
@@ -404,9 +431,9 @@ footer{
 }
 /* 5. Bir Şeyi Sürüklerken (Grab/Drag) */
 .draggable {
-    cursor: url('witch_hand_5_hold-drag.png') 12 12, grab;
+    /* cursor cursor.css'ten yönetiliyor */
 }
 
 .draggable:active {
-    cursor: url('witch_hand_5_hold-drag.png') 12 12, grabbing;
+    /* cursor cursor.css'ten yönetiliyor */
 } 

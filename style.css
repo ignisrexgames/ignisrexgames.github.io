@@ -1,22 +1,22 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     background: #050505;
     color: white;
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
 }
 
-/* ARKA PLAN */
-.background{
+/* ARKA PLAN AYARLARI */
+.background {
     position: fixed;
     top: 0;
     left: 0;
@@ -44,8 +44,8 @@ body{
     background-repeat: no-repeat;
 }
 
-@media(max-width: 800px){
-    .background{
+@media(max-width: 800px) {
+    .background {
         background-image:
             linear-gradient(rgba(5,5,5,.35), rgba(5,5,5,.55)),
             url("images/arkaplan.png");
@@ -85,7 +85,7 @@ body{
 }
 
 /* NAVBAR */
-nav{
+nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -100,7 +100,7 @@ nav{
     z-index: 1000;
 }
 
-.logo{
+.logo {
     text-decoration: none !important;
     color: white !important;
     font-family: 'Orbitron';
@@ -109,18 +109,18 @@ nav{
     letter-spacing: 2px;
 }
 
-.logo span{
+.logo span {
     color: #F0821B !important;
     text-shadow: 0 0 12px #F0821B;
 }
 
-nav ul{
+nav ul {
     list-style: none;
     display: flex;
     gap: 30px;
 }
 
-nav ul a{
+nav ul a {
     color: #ddd !important;
     text-decoration: none !important;
     font-size: 15px;
@@ -128,13 +128,13 @@ nav ul a{
     transition: .3s;
 }
 
-nav ul a:hover{
+nav ul a:hover {
     color: #F0821B !important;
     text-shadow: 0 0 12px #F0821B;
 }
 
-/* HERO VE 3D LOGO (Zıplamayı önleyen kesin sabit boyutlar) */
-.hero{
+/* HERO VE 3D LOGO */
+.hero {
     height: 100vh;
     display: flex;
     justify-content: space-between;
@@ -144,7 +144,7 @@ nav ul a:hover{
     position: relative;
 }
 
-.hero-logo-link{
+.hero-logo-link {
     display: inline-block;
     perspective: 1000px;
     text-decoration: none;
@@ -198,7 +198,7 @@ model-viewer {
     max-width: 480px;
 }
 
-.button{
+.button {
     display: inline-block;
     margin-top: 30px;
     padding: 15px 40px;
@@ -211,50 +211,50 @@ model-viewer {
     box-shadow: 0 0 25px rgba(240,130,27,.6);
 }
 
-.button:hover{
+.button:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 50px #F0821B;
 }
 
-/* SAYFALAR */
-.page{
+/* DİĞER SAYFALAR İÇİN ORTAK ALANLAR */
+.page {
     min-height: 100vh;
     padding: 160px 10% 80px;
 }
 
-.page h1{
+.page h1 {
     font-family: 'Orbitron';
     color: #F0821B;
     font-size: 50px;
     margin-bottom: 40px;
 }
 
-/* ABOUT */
-.about-section{
+/* ABOUT SAYFASI */
+.about-section {
     max-width: 900px;
 }
 
-.about-section p{
+.about-section p {
     color: #ddd;
     font-size: 19px;
     line-height: 2;
     margin-bottom: 25px;
 }
 
-.founder{
+.founder {
     margin-top: 40px;
     padding: 25px;
     border-left: 3px solid #F0821B;
 }
 
-/* GAMES */
-.game-grid{
+/* GAMES SAYFASI */
+.game-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 35px;
 }
 
-.game-box{
+.game-box {
     background: rgba(255,255,255,.05);
     border: 1px solid rgba(240,130,27,.3);
     border-radius: 25px;
@@ -262,25 +262,25 @@ model-viewer {
     transition: .4s;
 }
 
-.game-box:hover{
+.game-box:hover {
     transform: translateY(-10px);
     border-color: #F0821B;
     box-shadow: 0 0 35px rgba(240,130,27,.35);
 }
 
-.game-image{
+.game-image {
     height: 200px;
     border-radius: 20px;
     margin-bottom: 25px;
     background: linear-gradient(135deg, #111, #222);
 }
 
-.game-box h2{
+.game-box h2 {
     font-family: 'Orbitron';
     margin-bottom: 15px;
 }
 
-.status{
+.status {
     display: inline-block;
     padding: 8px 18px;
     background: #F0821B;
@@ -290,13 +290,13 @@ model-viewer {
     margin-bottom: 20px;
 }
 
-.game-box p{
+.game-box p {
     color: #ccc;
     line-height: 1.8;
 }
 
-/* CONTACT */
-.contact-box{
+/* CONTACT SAYFASI */
+.contact-box {
     max-width: 600px;
     padding: 40px;
     background: rgba(255,255,255,.05);
@@ -304,18 +304,18 @@ model-viewer {
     border-radius: 25px;
 }
 
-.contact-box p{
+.contact-box p {
     margin: 20px 0;
     color: #ddd;
 }
 
-.social-links{
+.social-links {
     display: flex;
     gap: 15px;
     margin-top: 30px;
 }
 
-.social-links a{
+.social-links a {
     color: white;
     text-decoration: none;
     border: 1px solid #F0821B;
@@ -324,14 +324,14 @@ model-viewer {
 }
 
 /* FOOTER */
-footer{
+footer {
     text-align: center;
     padding: 35px;
     border-top: 1px solid rgba(240,130,27,.2);
     color: #888;
 }
 
-/* 3 Nokta Menü */
+/* MOBİL MENÜ VE 3 NOKTA */
 .menu-toggle {
     display: none;
     background: none;
@@ -372,7 +372,7 @@ footer{
     .menu-toggle {
         display: block !important;
     }
-    .hero h1{
+    .hero h1 {
         font-size: 36px;
     }
 }

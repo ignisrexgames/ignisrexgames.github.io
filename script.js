@@ -5,7 +5,7 @@
 if (document.body) {
     document.body.animate(
         [
-            { opacity: 0, transform: "translateY(20px)" },
+            { opacity: 0.01, transform: "translateY(20px)" },
             { opacity: 1, transform: "translateY(0)" }
         ],
         { duration: 700, easing: "ease-out" }

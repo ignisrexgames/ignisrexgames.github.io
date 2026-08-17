@@ -67,6 +67,24 @@ body{
     }
 }
 
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #F0821B;
+    color: #000;
+    padding: 8px 16px;
+    z-index: 10000;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0 0 8px 0;
+    transition: top .2s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 /* NAVBAR (Morlaşma sorunu kesin olarak çözüldü) */
 nav{
     position: fixed;
@@ -120,13 +138,10 @@ nav ul a:hover{
 .hero{
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-}
-
-.hero-content{
-    animation: fade 1.5s;
+    padding: 60px;
+    text-align: left;
 }
 
 .hero-text,
@@ -171,24 +186,28 @@ model-viewer {
     transform: rotate(0deg);
 }
 
-.hero-logo{
-    max-width: 400px;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    filter: drop-shadow(0 0 30px rgba(240,130,27,0.6));
-}
-
-.hero-logo-link:hover .hero-logo{
-    transform: rotate(360deg) scale(1.05);
-}
-
 .hero p{
     margin-top: 20px;
     font-size: 22px;
     color: #ccc;
+}
+
+.hero-text {
+    transform: translateY(-80px);
+}
+
+.hero-text h1 {
+    font-family: 'Orbitron';
+    font-size: 40px;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px rgba(240,130,27,0.4);
+}
+
+.hero-text p {
+    font-size: 17px;
+    color: #bbb;
+    max-width: 480px;
 }
 
 .button{
@@ -337,53 +356,6 @@ footer{
     .page h1{
         font-size: 38px;
     }
-}
-/* Anasayfa sol metin ve sağ logo yerleşimi (Daha yukarı & daha küçük) */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 60px;
-    text-align: left;
-}
-
-.hero-text {
-    transform: translateY(-80px); /* Sayıyı artırdıkça yazı daha da yukarı taşınır */
-}
-
-.hero-text h1 {
-    font-family: 'Orbitron';
-    font-size: 40px;
-    color: white;
-    margin-bottom: 15px;
-    text-shadow: 0 0 20px rgba(240,130,27,0.4);
-}
-
-.hero-text p {
-    font-size: 17px;
-    color: #bbb;
-    max-width: 480px;
-}
-
-/* 3D Logo kapsayıcı (Aynı kalabilir) */
-.hero-logo-container {
-    position: absolute;
-    right: 60px;
-    bottom: 60px;
-}
-
-/* YENİ: 3D Görüntüleyiciyi Boyutlandırma */
-.hero-3d-logo {
-    width: 150px; /* Logonun ekranda kaplayacağı genişlik */
-    height: 150px; /* Logonun ekranda kaplayacağı yükseklik */
-    --poster-color: transparent; /* Yüklenirken arka planı şeffaf yapar */
-}
-
-/* Fare üzerine gelince dönmeyi hızlandır */
-.hero-logo-link:hover .hero-3d-logo  {
-    transform: rotate(360deg);
-    transition: transform 0.5s ease;
 }
 /* 3 nokta butonunu varsayılan olarak (bilgisayarda) gizle */
 .menu-toggle {

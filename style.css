@@ -133,7 +133,7 @@ nav ul a:hover {
     text-shadow: 0 0 12px #F0821B;
 }
 
-/* HERO VE 3D LOGO */
+/* HERO VE 3D LOGO (CLS / Zıplama Önleyici Sabit Boyutlar) */
 .hero {
     height: 100vh;
     display: flex;

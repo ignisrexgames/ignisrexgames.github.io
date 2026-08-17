@@ -1,45 +1,59 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IGNISREX GAMES - Geleceğin mobil oyunlarını keşfedin. Evrim Macerası ve yakında çıkacak projeler.">
     <title>IGNISREX GAMES</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600&display=swap">
-    <style>*{cursor:url('witch_hand_1_default.png') 12 12,auto !important}</style>
+
+    <!-- Özel İmleç -->
+    <style>
+        * {
+            cursor: url('witch_hand_1_default.png') 12 12, auto !important;
+        }
+    </style>
+
+    <!-- Stil Dosyası -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- 3D Model Görüntüleyici Kütüphanesi -->
     <script defer src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module"></script>
+
+    <!-- Favicon ve İkonlar -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon-mobil.png">
     <link rel="icon" sizes="192x192" href="favicon-mobil.png">
+
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6307744739178126" crossorigin="anonymous"></script>
 </head>
-
 <body>
 
+    <!-- Erişilebilirlik için Skip Link -->
     <a href="#main" class="skip-link">Ana içeriğe atla</a>
 
+    <!-- Arka Plan -->
     <div class="background"></div>
 
+    <!-- Üst Menü / Navbar -->
     <header>
         <nav>
             <a href="index.html" class="logo">
                 IGNIS<span>REX</span>GAMES
             </a>
-
             <ul class="desktop-menu">
                 <li><a href="index.html">Ana Sayfa</a></li>
                 <li><a href="about.html">Hakkımızda</a></li>
                 <li><a href="games.html">Oyunlar</a></li>
                 <li><a href="contact.html">İletişim</a></li>
             </ul>
-
             <button class="menu-toggle" id="menuBtn" aria-label="Menüyü aç/kapat">⋮</button>
         </nav>
-
         <div class="dropdown-menu" id="dropdownMenu">
             <a href="index.html">Ana Sayfa</a>
             <a href="about.html">Hakkımızda</a>
@@ -48,6 +62,7 @@
         </div>
     </header>
 
+    <!-- Ana İçerik Alanı -->
     <main id="main">
         <section class="hero">
             <div class="hero-text">
@@ -55,16 +70,15 @@
                 <p>IGNISREX GAMES olarak yenilikçi, sürükleyici ve eğlenceli mobil deneyimler tasarlıyoruz.</p>
                 <a href="games.html" class="button">Oyunları İncele</a>
             </div>
-
             <div class="hero-logo-container">
                 <a href="games.html" class="hero-logo-link">
-                    <model-viewer
-                        id="heroLogo"
-                        class="hero-3d-logo"
+                    <model-viewer 
+                        id="heroLogo" 
+                        class="hero-3d-logo" 
                         src="logo.glb" 
-                        alt="IGNISREX GAMES 3D Logo"
-                        disable-zoom
-                        interaction-prompt="none"
+                        alt="IGNISREX GAMES 3D Logo" 
+                        disable-zoom 
+                        interaction-prompt="none" 
                         shadow-intensity="1">
                     </model-viewer>
                 </a>
@@ -72,45 +86,56 @@
         </section>
     </main>
 
+    <!-- Alt Bilgi / Footer -->
     <footer style="text-align: center; padding: 30px; position: relative; z-index: 100; clear: both;">
         <p style="color: #888; margin-bottom: 8px;">&copy; 2026 IGNISREX GAMES.</p>
         <a href="gizlilik.html" style="color: #3498db; text-decoration: underline; font-weight: bold; font-size: 15px;">Gizlilik Politikası</a>
     </footer>
 
+    <!-- JavaScript Dosyaları ve Logo Animasyonu -->
     <script src="script.js"></script>
     <script>
         const logoViewer = document.getElementById('heroLogo');
         let angle = 0;
         let isHovered = false; 
 
-        logoViewer.addEventListener('mouseenter', () => { isHovered = true; });
-        logoViewer.addEventListener('mouseleave', () => {
-            isHovered = false;
-            angle = angle % (2 * Math.PI);
-            if (angle > Math.PI) { angle -= 2 * Math.PI; }
-        });
+        if (logoViewer) {
+            logoViewer.addEventListener('mouseenter', () => {
+                isHovered = true;
+            });
 
-        logoViewer.addEventListener('touchstart', () => { isHovered = true; });
-        logoViewer.addEventListener('touchend', () => {
-            isHovered = false;
-            angle = angle % (2 * Math.PI);
-            if (angle > Math.PI) { angle -= 2 * Math.PI; }
-        });
+            logoViewer.addEventListener('mouseleave', () => {
+                isHovered = false;
+                angle = angle % (2 * Math.PI);
+                if (angle > Math.PI) {
+                    angle -= 2 * Math.PI;
+                }
+            });
 
-        function animateLogo() {
-            if (logoViewer) {
+            logoViewer.addEventListener('touchstart', () => {
+                isHovered = true;
+            });
+
+            logoViewer.addEventListener('touchend', () => {
+                isHovered = false;
+                angle = angle % (2 * Math.PI);
+                if (angle > Math.PI) {
+                    angle -= 2 * Math.PI;
+                }
+            });
+
+            function animateLogo() {
                 if (isHovered) {
                     angle += 0.05; 
                 } else {
                     angle += (0 - angle) * 0.007;
                 }
                 logoViewer.cameraOrbit = `${angle}rad 75deg 105%`;
+                requestAnimationFrame(animateLogo);
             }
+
             requestAnimationFrame(animateLogo);
         }
-
-        requestAnimationFrame(animateLogo);
     </script>
 </body>
-
 </html>

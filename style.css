@@ -44,7 +44,6 @@ body{
     background-repeat: no-repeat;
 }
 
-/* MOBİL İÇİN AYRI ARKA PLAN (PNG Uyumlu) */
 @media(max-width: 800px){
     .background{
         background-image:
@@ -134,7 +133,7 @@ nav ul a:hover{
     text-shadow: 0 0 12px #F0821B;
 }
 
-/* HERO VE ORTADAKİ DÖNEN LOGO (CLS Sabitlendi) */
+/* HERO VE 3D LOGO (Zıplamayı önleyen kesin sabit boyutlar) */
 .hero{
     height: 100vh;
     display: flex;
@@ -149,6 +148,8 @@ nav ul a:hover{
     display: inline-block;
     perspective: 1000px;
     text-decoration: none;
+    width: 150px;
+    height: 150px;
 }
 
 .hero-3d-logo {
